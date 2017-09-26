@@ -104,10 +104,10 @@ CREATE TABLE timekeepDetail
 (
 	id INT IDENTITY PRIMARY KEY,
 	days DATE, -- ngay di lam
-	ca INT, -- ca di lam
+	shift INT, -- ca di lam
 	EmpID INT, -- Ma nhan vien
 
-	FOREIGN KEY(ca) REFERENCES dbo.shifts(id),
+	FOREIGN KEY(shift) REFERENCES dbo.shifts(id),
 	FOREIGN KEY(EmpID) REFERENCES dbo.Employee(id)
 
 )
