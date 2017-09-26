@@ -15,6 +15,7 @@ namespace QuanLiQuanCafe
         public Form1()
         {
             InitializeComponent();
+           
         }
     }
 }

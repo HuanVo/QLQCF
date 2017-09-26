@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLiQuanCafe", "QuanLiQuanCafe\QuanLiQuanCafe.csproj", "{611E5EFD-44F6-4C8A-B26F-6E96C8E71ADB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{73426C01-4F0D-415A-8524-D9E59F942197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{7C11186B-B70D-4157-83FE-7E84C663CEDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{611E5EFD-44F6-4C8A-B26F-6E96C8E71ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611E5EFD-44F6-4C8A-B26F-6E96C8E71ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{611E5EFD-44F6-4C8A-B26F-6E96C8E71ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73426C01-4F0D-415A-8524-D9E59F942197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73426C01-4F0D-415A-8524-D9E59F942197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73426C01-4F0D-415A-8524-D9E59F942197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73426C01-4F0D-415A-8524-D9E59F942197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C11186B-B70D-4157-83FE-7E84C663CEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C11186B-B70D-4157-83FE-7E84C663CEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C11186B-B70D-4157-83FE-7E84C663CEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C11186B-B70D-4157-83FE-7E84C663CEDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
