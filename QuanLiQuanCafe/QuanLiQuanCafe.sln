@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLiQuanCafe", "QuanLiQuanCafe\QuanLiQuanCafe.csproj", "{611E5EFD-44F6-4C8A-B26F-6E96C8E71ADB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{73426C01-4F0D-415A-8524-D9E59F942197}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{7C11186B-B70D-4157-83FE-7E84C663CEDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI", "GUI", "{B7FF7166-7E09-47EB-8EE0-8E32595A6EEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{611E5EFD-44F6-4C8A-B26F-6E96C8E71ADB} = {B7FF7166-7E09-47EB-8EE0-8E32595A6EEF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4261BA9-BE82-4E0E-A783-2D7C4A370289}
 	EndGlobalSection
 EndGlobal
