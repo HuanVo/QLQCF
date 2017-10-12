@@ -50,11 +50,15 @@ namespace QuanLiQuanCafe
             //Xử lí đăng nhập
             if(AccountDAO.Instance.CheckLogin(UserName, Password))
             {
-                frmMain frmmain = new frmMain(UserName);
+                FrmHome frmHome = new FrmHome();
                 this.Hide();
-                frmmain.ShowDialog();
+                frmHome.ShowDialog();
                 this.Show();
-               // MessageBox.Show("Đăng nhập thành công!");
+                //frmMain frmmain = new frmMain(UserName);
+                //this.Hide();
+                //frmmain.ShowDialog();
+                //this.Show();
+                // MessageBox.Show("Đăng nhập thành công!");
             }
             else
             {

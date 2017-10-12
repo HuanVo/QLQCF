@@ -1,10 +1,7 @@
 ﻿using DTO;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 namespace DAO
 {
     public class AccountDAO
@@ -16,17 +13,18 @@ namespace DAO
             private set { AccountDAO.instance = value; }
         }
         private AccountDAO() { }
-        public bool CheckLogin(String UserName, String Password)
+        public bool CheckLogin(String userName, String password)
         {
-            String sqlCommand = string.Format(@"EXEC dbo.CheckLogin '{0}', '{1}'", UserName, Password);
+            //if (userName == null) throw new ArgumentNullException("userName");
+            String sqlCommand = string.Format(@"EXEC dbo.CheckLogin '{0}', '{1}'", userName, password);
             if (DataProvider.Instance.ExcuteScaler(sqlCommand) > 0)
                 return true;
             return false;
         }
 
-        public Account getAccount(String UserName)
+        public Account GetAccount(String userName)
         {
-            String sql =string.Format(@"EXEC dbo.getAccount '{0}'", UserName);
+            String sql =string.Format(@"EXEC dbo.getAccount '{0}'", userName);
             DataTable dt = new DataTable();
             Account acc = new Account();
            try

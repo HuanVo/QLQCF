@@ -50,6 +50,7 @@ CREATE TABLE Food
 	idFood INT IDENTITY PRIMARY KEY,
 	name NVARCHAR(100) NOT NULL DEFAULT N'Chưa đặt tên',
 	idFoodCategory INT NOT NULL,
+	unit INT,
 	price MONEY NOT NULL DEFAULT 0
 	
 	FOREIGN KEY (idFoodCategory) REFERENCES dbo.FoodCategory(idFoodCategory)
