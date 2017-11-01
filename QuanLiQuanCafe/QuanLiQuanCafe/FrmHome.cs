@@ -27,15 +27,7 @@ namespace QuanLiQuanCafe
                     im.SubItems.Add("Đây là "+j.ToString());
                 }
                 listView1.Items.Add(im);
-            }
-           
-            
-        }
-
-        private void textEdit3_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
+            }        }
 
         private void panelControl2_Paint(object sender, PaintEventArgs e)
         {
@@ -45,6 +37,11 @@ namespace QuanLiQuanCafe
         private void quảnTrịToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

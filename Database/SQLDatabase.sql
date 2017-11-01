@@ -56,6 +56,7 @@ CREATE TABLE Food
 	FOREIGN KEY (idFoodCategory) REFERENCES dbo.FoodCategory(idFoodCategory)
 )
 GO
+
 CREATE TABLE Employee
 (
 	idEmployee INT IDENTITY PRIMARY KEY,
@@ -69,6 +70,7 @@ CREATE TABLE Employee
 	advance MONEY DEFAULT 0, -- tien ung truoc
 )
 GO
+
 CREATE TABLE Bill
 (
 	idBill INT IDENTITY PRIMARY KEY,
@@ -149,10 +151,65 @@ GO
 CREATE PROC getAccount(@UserName VARCHAR(100))
 AS
 BEGIN
-SELECT UserName, DisplayName,Type FROM dbo.Account
-WHERE UserName = @UserName
+	SELECT UserName, DisplayName,Type FROM dbo.Account
+	WHERE UserName = @UserName
 END
 GO
+
+/*
+	Thêm mới nhân viên
+	EXEC dbo.addEmployee N'Võ Văn Huấn', True, N'bvvvvvvvvvvvvv', '123585', '10/31/2017 12:00:00 AM', '1500000', '10/31/2017 12:00:00 AM', 0
+*/
+CREATE PROC addEmployee( @fullname NVARCHAR(100), @sex BIT,@address NVARCHAR(255), @phone VARCHAR(20), @daystart DATE,@salarylevel MONEY, @indicator DATE, @advance MONEY)
+AS
+BEGIN
+	INSERT INTO Employee(fullName, sex, addres, phone, dayStart, salaryLevel, indicator, advance)
+	VALUES(@fullname, @sex, @address, @phone, @daystart, @salarylevel, @indicator, @advance)
+END
+GO
+/*
+	Lấy danh nhân viên lên datagridview
+	EXEC dbo.getEmployees
+*/
+CREATE PROC getEmployees
+AS
+BEGIN
+	SELECT dbo.Employee.idEmployee AS [Mã Nhân Viên], dbo.Employee.fullName AS [Họ Và Tên],
+	  [Giới Tính]= CASE dbo.Employee.sex when 'true' then N'Nam'
+		when 'false' then N'Nữ' END,
+	dbo.Employee.addres AS [Địa Chỉ], dbo.Employee.phone AS [Số Điện Thoại] FROM dbo.Employee
+END
+GO
+/*
+	Lấy danh nhân viên lên bởi mã
+	EXEC dbo.getEmployees
+*/
+CREATE PROC getEmployeesByID(@id INT)
+AS
+BEGIN
+	SELECT *
+	 FROM dbo.Employee
+	 WHERE idEmployee = @id
+END
+GO
+
+/*
+	Lấy danh nhân viên lên datagridview
+	EXEC dbo.getEmployees
+*/
+CREATE PROC findEmployeesByID(@id INT)
+AS
+BEGIN
+	SELECT dbo.Employee.idEmployee AS [Mã Nhân Viên], dbo.Employee.fullName AS [Họ Và Tên],
+	  [Giới Tính]= CASE dbo.Employee.sex when 'true' then N'Nam'
+		when 'false' then N'Nữ' END,
+	dbo.Employee.addres AS [Địa Chỉ], dbo.Employee.phone AS [Số Điện Thoại] FROM dbo.Employee
+	WHERE idEmployee 
+END
+GO
+
+
+
 
 
 

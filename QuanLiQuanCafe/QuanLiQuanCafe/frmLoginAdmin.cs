@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using DAO;
-
 namespace QuanLiQuanCafe
 {
     public partial class frmLoginAdmin : Form

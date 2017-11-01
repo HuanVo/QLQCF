@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AccountDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="EmployeeDAO.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="ErrorLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

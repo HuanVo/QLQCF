@@ -16,7 +16,7 @@ namespace QuanLiQuanCafe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLoginAdmin());
+            Application.Run(new FrmAdmin());
         }
     }
 }
