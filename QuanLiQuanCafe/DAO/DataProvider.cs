@@ -125,7 +125,11 @@ namespace DAO
             CloseConnect();
             return result;
         }
-        // dem, thong ke so dong du lieu
+        /// <summary>
+        /// dem, thong ke so dong du lieu
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public int ExcuteScaler(String str)
         {
             int result = 0;

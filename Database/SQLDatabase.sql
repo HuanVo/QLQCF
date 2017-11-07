@@ -45,12 +45,17 @@ CREATE TABLE FoodCategory
 )
 GO
 
+INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Cà Phê' )
+INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Sinh Tố' )
+INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Nước Ngọt')
+INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Danh Mục Món Phụ')
+
 CREATE TABLE Food
 (
 	idFood INT IDENTITY PRIMARY KEY,
 	name NVARCHAR(100) NOT NULL DEFAULT N'Chưa đặt tên',
 	idFoodCategory INT NOT NULL,
-	unit INT,
+	unit NVARCHAR(50),
 	price MONEY NOT NULL DEFAULT 0
 	
 	FOREIGN KEY (idFoodCategory) REFERENCES dbo.FoodCategory(idFoodCategory)
@@ -167,6 +172,19 @@ BEGIN
 	VALUES(@fullname, @sex, @address, @phone, @daystart, @salarylevel, @indicator, @advance)
 END
 GO
+
+/*
+	sửa mới nhân viên
+	
+*/
+CREATE PROC editEmployee( @fullname NVARCHAR(100), @sex BIT,@address NVARCHAR(255), @phone VARCHAR(20), @daystart DATE,@salarylevel MONEY, @indicator DATE, @advance MONEY, @id INT)
+AS
+BEGIN
+	UPDATE Employee
+	SET fullName = @fullname, sex = @sex, addres = @address, phone = @phone, dayStart = @daystart, salaryLevel = @salarylevel, indicator = @indicator,advance = @advance
+	WHERE dbo.Employee.idEmployee = @id
+END
+GO
 /*
 	Lấy danh nhân viên lên datagridview
 	EXEC dbo.getEmployees
@@ -180,10 +198,7 @@ BEGIN
 	dbo.Employee.addres AS [Địa Chỉ], dbo.Employee.phone AS [Số Điện Thoại] FROM dbo.Employee
 END
 GO
-/*
-	Lấy danh nhân viên lên bởi mã
-	EXEC dbo.getEmployees
-*/
+
 CREATE PROC getEmployeesByID(@id INT)
 AS
 BEGIN
@@ -194,23 +209,137 @@ END
 GO
 
 /*
-	Lấy danh nhân viên lên datagridview
-	EXEC dbo.getEmployees
+Xoa nhan vien
 */
-CREATE PROC findEmployeesByID(@id INT)
+CREATE PROC DeleteEmployee(@id INT)
 AS
 BEGIN
-	SELECT dbo.Employee.idEmployee AS [Mã Nhân Viên], dbo.Employee.fullName AS [Họ Và Tên],
-	  [Giới Tính]= CASE dbo.Employee.sex when 'true' then N'Nam'
-		when 'false' then N'Nữ' END,
-	dbo.Employee.addres AS [Địa Chỉ], dbo.Employee.phone AS [Số Điện Thoại] FROM dbo.Employee
-	WHERE idEmployee 
+	DELETE 
+	 FROM dbo.Employee
+	 WHERE idEmployee = @id
 END
 GO
 
+/*
+ - Load danh sach sanr pham.
+ - EXEC getTableProduct
+*/
+CREATE PROC getTableProduct
+AS
+BEGIN
+	SELECT idFood AS [Mã Sản Phẩm], name AS [Tên Phẩn Phẩm], unit AS [Đơn Vị], price AS [Giá] FROM dbo.Food
+END
+GO
 
+/*
+ - Thêm mới Sản phẩm
+*/
+CREATE PROC addProduct(@name NVARCHAR(100), @id INT, @unit NVARCHAR(50), @price MONEY)
+AS
+BEGIN
+	INSERT INTO dbo.Food
+	        ( name, idFoodCategory, unit, price )
+	VALUES  ( @name, -- name - nvarchar(100)
+	          @id, -- idFoodCategory - int
+	          @unit, -- unit - nvarchar(50)
+	          @price  -- price - money
+	          )
+END
+    
+GO
 
+/*
+ - Lấy sản phẩm bởi mã sản phẩm
+*/
+CREATE PROC getProductByID(@id VARCHAR(50))
+AS
+BEGIN
+	SELECT * FROM dbo.Food
+	WHERE idFood = @id
+END
 
+GO
 
+/*
+ - Sửa sản phẩm
+*/
 
+CREATE PROC editProduct(@id INT, @name NVARCHAR(100), @unit NVARCHAR(50), @price MONEY, @idcatalog INT)
+AS
+BEGIN
+	UPDATE dbo.Food
+	SET name=@name, idFoodCategory = @idcatalog, unit = @unit, price = @price
+	WHERE idFood = @id
+END
+GO
 
+/*
+ - Xóa một sản phẩm
+*/
+CREATE PROC DeleteProduct(@id INT)
+AS
+BEGIN
+	DELETE FROM dbo.Food
+	WHERE idFood = @id
+END
+GO
+
+/*
+ - Thêm Một Catalog sản phẩm
+*/
+
+CREATE PROC AddCatalog(@name NVARCHAR(100))
+AS
+BEGIN
+	INSERT INTO dbo.FoodCategory
+	        (name)
+	VALUES  (@name)
+END
+ EXEC dbo.AddCatalog @name = N'Thực phẩm xanh' -- nvarchar(100)
+ GO
+ 
+ /*
+  - Load danh sách catalog
+ */
+
+ CREATE PROC getTableCatalog
+ AS
+ BEGIN
+ 	SELECT dbo.FoodCategory.idFoodCategory AS [Mã Danh Mục], dbo.FoodCategory.name AS [Tên Danh Mục] FROM dbo.FoodCategory
+ END
+ GO
+ 
+ /*
+  - Load danh sach catalog boi ma catalog
+ */
+  CREATE PROC getTableCatalogByID(@id INT)
+ AS
+ BEGIN
+ 	SELECT dbo.FoodCategory.idFoodCategory AS [Mã Danh Mục], dbo.FoodCategory.name AS [Tên Danh Mục] FROM dbo.FoodCategory
+	WHERE idFoodCategory = @id
+ END
+ GO
+ 
+/*
+ - Sửa catalog
+*/
+CREATE PROC editCatalog(@id INT, @name NVARCHAR(100))
+AS
+BEGIN
+	UPDATE dbo.FoodCategory
+	SET name = @name
+	WHERE idFoodCategory = @id
+    
+END
+GO
+
+/*
+ - Xóa catalogs
+*/
+CREATE PROC DeleteCatalog(@id INT)
+AS
+BEGIN
+	DELETE FROM dbo.FoodCategory
+	WHERE idFoodCategory = @id
+END
+GO

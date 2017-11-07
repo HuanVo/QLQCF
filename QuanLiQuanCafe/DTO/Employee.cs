@@ -19,6 +19,7 @@ namespace DTO
             this.endDaySalary = enddaysalary;
             this.salaryAdvance = salaryadvence;
         }
+
         public Employee(DataRow dt)
         {
             this.Id = Convert.ToInt32(dt["idEmployee"].ToString());
