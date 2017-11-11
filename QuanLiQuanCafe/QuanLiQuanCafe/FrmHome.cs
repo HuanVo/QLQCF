@@ -43,5 +43,10 @@ namespace QuanLiQuanCafe
         {
             this.Close();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

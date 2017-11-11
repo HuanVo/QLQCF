@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DTO;
 using DAO;
 using System.Data;
+using QuanLiQuanCafe.Report;
 
 namespace QuanLiQuanCafe
 {
@@ -102,6 +103,10 @@ namespace QuanLiQuanCafe
             loadData(ProductDAO.Instance.LoadProduct(), dtgvProduct);
             //Catalog
             loadData(CatalogProductDAO.Instance.LoadCatalog(), dtgrvCatalogProduct);
+
+            //Table
+            cbbStatusTable.SelectedIndex = 0;
+            loadData(TableDAO.Instance.LoadTable(), dtgrvTableFood);
         }
 
         /// <summary>
@@ -1000,11 +1005,229 @@ namespace QuanLiQuanCafe
             chkExactlySearchCatalog.Checked = false;
         }
 
+        private void btnAddTable_Click(object sender, EventArgs e)
+        {
+            String Name = txtNameTable.Text.Trim() != "" ? txtNameTable.Text : "Chưa có tên";
+            bool status =Convert.ToBoolean(cbbStatusTable.SelectedIndex);
+            if(MessageBox.Show("Bạn có muốn thêm "+ Name, "Xác Nhận Thêm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if(TableDAO.Instance.AddTableFood(Name, status))
+                {
+                    loadData(TableDAO.Instance.LoadTable(), dtgrvTableFood);
+                    MessageBox.Show("Thêm thành công bàn " + Name, "Trạng Thái Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                    MessageBox.Show(string.Format("Không thể thêm {0} Vui lòng kiểm tra lại.", Name), "Trạng Thái Thêm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEditTable_Click(object sender, EventArgs e)
+        {
+            if (txtIDTable.Text.Trim() != "")
+            {
+                if (MessageBox.Show("Bạn có muốn sửa " + txtIDTable.Text, "Xác Nhận Sửa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+
+                    if (TableDAO.Instance.EditTableFood(Convert.ToInt32(txtIDTable.Text), txtNameTable.Text.Trim() != "" ? txtNameTable.Text.Trim() : "Chưa có tên", Convert.ToBoolean(cbbStatusTable.SelectedIndex)))
+                    {
+                        loadData(TableDAO.Instance.LoadTable(), dtgrvTableFood);
+                        MessageBox.Show("Sửa thành công " + txtIDTable.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Lỗi Khi xóa " + txtIDTable.Text + " Vui lòng xem lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Không có bàn nào được chọn", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void dtgrvTableFood_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BingdingTableFood();
+        }
+        private void BingdingTableFood()
+        {
+            Table tbl;
+            int id = Convert.ToInt32(dtgrvTableFood.Rows[this.dtgrvTableFood.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            tbl = TableDAO.Instance.LoadTableFoodID(id);
+            txtIDTable.Text = tbl.Id.ToString();
+            txtNameTable.Text = tbl.Name;
+            cbbStatusTable.SelectedIndex = Convert.ToInt32(tbl.Status);
+        }
+
+        private void btnDelTable_Click(object sender, EventArgs e)
+        {
+            if (txtIDTable.Text.Trim() != "")
+            {
+                if (MessageBox.Show("Bạn có muốn xóa " + txtIDTable.Text, "Xác Nhận Xóa", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (TableDAO.Instance.DeleteTableFood(Convert.ToInt32(txtIDTable.Text)))
+                    {
+                        loadData(TableDAO.Instance.LoadTable(), dtgrvTableFood);
+                        MessageBox.Show("Xóa thành công " + txtIDTable.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show(string.Format("Lỗi Khi xóa {0} Vui lòng xem lại", txtIDTable.Text), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Không có bàn nào được chọn", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnResetTable_Click(object sender, EventArgs e)
+        {
+            txtIDTable.Text = "";
+            txtNameTable.Text = "";
+            
+        }
+
+        private void btnSearchTable_Click(object sender, EventArgs e)
+        {
+            if(chkSearchExTable.Checked == true)
+            {
+                SearchTableFoodEx();
+            }
+            else
+            {
+                SearchTableFood();
+            }
+            //MessageBox.Show("Che");
+        }
+        /// <summary>
+        /// Lấy dữ liệu tìm kiếm bàn uống chính xác
+        /// </summary>
+        /// <returns></returns>
+        private List<String> DataSearchTableFoodEx()
+        {
+            List<String> result = new List<string>();
+            String id = "";
+            if(txtSearchIDTable.Text.Trim()!="")
+            {
+                id = string.Format(@"idTableFood = '{0}'", txtSearchIDTable.Text.Trim());
+                result.Add(id);
+            }
+            String name = "";
+            if(txtSearchNameTable.Text.Trim() !="")
+            {
+                name = string.Format(@"name = '{0}'", txtSearchNameTable.Text.Trim());
+                result.Add(name);
+            }
+            String stats = "";
+            if(cbbSearchStsTable.SelectedIndex != -1)
+            {
+                stats = string.Format(@"stats = '{0}'", cbbSearchStsTable.SelectedIndex);
+                result.Add(stats);
+            }
+            return result;
+        }
+
+        private void SearchTableFoodEx()
+        {
+            try
+            {
+                List<String> Data = DataSearchTableFoodEx();
+                if (Data.Count < 1)
+                {
+                    loadData(TableDAO.Instance.LoadTable(), dtgrvTableFood);
+                }
+                else
+                {
+                    String sQLQuery = @"SELECT dbo.TableFood.idTableFood AS [Mã Bàn], dbo.TableFood.name AS [Tên Bàn],[Tình Trạng] = CASE dbo.TableFood.stats WHEN 'true' THEN N'Có người' WHEN 'false' THEN N'Trống' END FROM dbo.TableFood WHERE";
+                    String tempwhere = "";
+                    foreach (String item in Data)
+                    {
+                        tempwhere = string.Format("{0} and {1}", tempwhere, item);
+                    }
+                    String Str1 = tempwhere.Substring(4);
+                    sQLQuery = sQLQuery + Str1;
+                    DataTable dt = TableDAO.Instance.SearchTableFoodExactly(sQLQuery);
+                    if (dt.Rows.Count > 0)
+                    {
+                        loadData(dt, dtgrvTableFood);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy bàn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.WriteLog(ex.Message);
+            }
+            
+        }
+        /// <summary>
+        /// Lấy dữ liệu tìm kiếm bàn uống.
+        /// </summary>
+        /// <returns></returns>
+        private List<String> DataSearchTableFood()
+        {
+            List<String> result = new List<string>();
+            String id = "";
+            if (txtSearchIDTable.Text.Trim() != "")
+            {
+                id = string.Format(@"idTableFood like '%{0}%'", txtSearchIDTable.Text.Trim());
+                result.Add(id);
+            }
+            String name = "";
+            if (txtSearchNameTable.Text.Trim() != "")
+            {
+                name = string.Format(@"name like '%{0}%'", txtSearchNameTable.Text.Trim());
+                result.Add(name);
+            }
+            String stats = "";
+            if (cbbSearchStsTable.SelectedIndex != -1)
+            {
+                stats = string.Format(@"stats = '{0}'", cbbSearchStsTable.SelectedIndex);
+                result.Add(stats);
+            }
+            return result;
+        }
+
+        private void SearchTableFood()
+        {
+            try
+            {
+                List<String> Data = DataSearchTableFood();
+                if (Data.Count < 1)
+                {
+                    loadData(TableDAO.Instance.LoadTable(), dtgrvTableFood);
+                }
+                else
+                {
+                    String sQLQuery = @"SELECT dbo.TableFood.idTableFood AS [Mã Bàn], dbo.TableFood.name AS [Tên Bàn],[Tình Trạng] = CASE dbo.TableFood.stats WHEN 'true' THEN N'Có người' WHEN 'false' THEN N'Trống' END FROM dbo.TableFood WHERE";
+                    String tempwhere = "";
+                    foreach (String item in Data)
+                    {
+                        tempwhere = string.Format("{0} or {1}", tempwhere, item);
+                    }
+                    String Str1 = tempwhere.Substring(3);
+                    sQLQuery = sQLQuery + Str1;
+                    DataTable dt = TableDAO.Instance.SearchTableFoodExactly(sQLQuery);
+                    if (dt.Rows.Count > 0)
+                    {
+                        loadData(dt, dtgrvTableFood);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy bàn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.WriteLog(ex.Message);
+            }
+        }
+
+        private void simpleButton27_Click(object sender, EventArgs e)
+        {
+        }
 
 
-        
         #region method
         #endregion
-
     }
 }

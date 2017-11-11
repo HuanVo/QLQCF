@@ -66,7 +66,7 @@ namespace DAO
         /// Load catalog by id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>get a record Catalog food</returns>
        public CatalogProduct LoadCatalogByID(int id)
        {
            CatalogProduct pro = null;
@@ -128,7 +128,7 @@ namespace DAO
            return result;
        }
 
-        public DataTable SearchCatalogExactly(String sql)
+       public DataTable SearchCatalogExactly(String sql)
        {
            DataTable dt = null;
            try

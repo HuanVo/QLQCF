@@ -1,4 +1,4 @@
-USE master
+ôUSE master
 GO
 IF EXISTS(SELECT * FROM sysdatabases WHERE name='CoffeeRes')
 DROP DATABASE CoffeeRes
@@ -19,7 +19,6 @@ GO
 -- Employee
 -- Shift
 -- timekeepDetail
-
 
 CREATE TABLE TableFood
 (
@@ -341,5 +340,67 @@ AS
 BEGIN
 	DELETE FROM dbo.FoodCategory
 	WHERE idFoodCategory = @id
+END
+GO
+
+/*
+Lấy danh sách bàn uống
+*/
+
+CREATE PROC getTableTableFood
+AS
+BEGIN
+	SELECT dbo.TableFood.idTableFood AS [Mã Bàn], dbo.TableFood.name AS [Tên Bàn],[Tình Trạng] = CASE dbo.TableFood.stats WHEN 'true' THEN N'Có người' WHEN 'false' THEN N'Trống' END FROM dbo.TableFood
+END
+GO
+
+
+/*
+ - Thêm Bàn
+*/
+CREATE PROC AddTableFood(@Name NVARCHAR(50), @status BIT)
+AS
+BEGIN
+	INSERT INTO dbo.TableFood
+	        ( name, stats )
+	VALUES  ( @Name, -- name - nvarchar(100)
+	          @status  -- stats - bit
+	          )
+END
+GO
+
+/*
+	- lấy dữ liệu bản ghi bàn bởi id bàn
+*/
+CREATE PROC getTableTableFoodByID(@id INT)
+AS
+BEGIN
+	SELECT dbo.TableFood.idTableFood, dbo.TableFood.name, stats FROM dbo.TableFood
+	WHERE idTableFood = @id
+END
+GO
+
+/*
+ - sửa bàn uống
+*/
+CREATE PROC editTableFood(@id INT, @name NVARCHAR(50), @sts BIT)
+AS
+BEGIN
+	UPDATE dbo.TableFood
+	SET name = @name, stats = @sts
+	WHERE idTableFood = @id
+    
+END
+GO
+
+/*
+ - Xóa bàn
+*/
+
+CREATE PROC deleteTableFood(@id INT)
+AS
+BEGIN
+	DELETE FROM dbo.TableFood
+	WHERE idTableFood = @id
 END
 GO
