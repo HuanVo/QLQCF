@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using DTO;
 using DAO;
 using System.Data;
-using QuanLiQuanCafe.Report;
 
 namespace QuanLiQuanCafe
 {

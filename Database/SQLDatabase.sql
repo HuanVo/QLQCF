@@ -404,3 +404,14 @@ BEGIN
 	WHERE idTableFood = @id
 END
 GO
+
+/*
+ - Lấy danh sách bàn.
+*/
+ CREATE PROC loadAllTableFood
+ AS
+ BEGIN
+ 	SELECT * FROM dbo.TableFood ORDER BY stats
+ END
+
+ GO

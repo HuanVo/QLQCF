@@ -43,6 +43,11 @@
             this.quảnTrịToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -103,19 +108,25 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbTatailTableFood = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panel8 = new System.Windows.Forms.Panel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowpnlListTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
+            this.lblDetailStatusTableFood = new System.Windows.Forms.Label();
+            this.lblDetailEmployeeTableFood = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -155,6 +166,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,13 +261,13 @@
             this.quảnTrịToolStripMenuItem.Name = "quảnTrịToolStripMenuItem";
             this.quảnTrịToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.quảnTrịToolStripMenuItem.Text = "Thiết Lập";
-            this.quảnTrịToolStripMenuItem.Click += new System.EventHandler(this.quảnTrịToolStripMenuItem_Click);
             // 
             // quảnTrịToolStripMenuItem1
             // 
             this.quảnTrịToolStripMenuItem1.Name = "quảnTrịToolStripMenuItem1";
             this.quảnTrịToolStripMenuItem1.Size = new System.Drawing.Size(64, 20);
             this.quảnTrịToolStripMenuItem1.Text = "Quản Trị";
+            this.quảnTrịToolStripMenuItem1.Click += new System.EventHandler(this.quảnTrịToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -265,12 +277,67 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.panel15);
             this.panelControl1.Controls.Add(this.panel14);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 24);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1100, 36);
             this.panelControl1.TabIndex = 1;
+            // 
+            // panel15
+            // 
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.lblTime);
+            this.panel15.Controls.Add(this.lblDate);
+            this.panel15.Controls.Add(this.label26);
+            this.panel15.Controls.Add(this.label27);
+            this.panel15.Location = new System.Drawing.Point(934, 2);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(161, 32);
+            this.panel15.TabIndex = 3;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.ForeColor = System.Drawing.Color.Red;
+            this.lblTime.Location = new System.Drawing.Point(57, 16);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(0, 13);
+            this.lblTime.TabIndex = 4;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.ForeColor = System.Drawing.Color.Red;
+            this.lblDate.Location = new System.Drawing.Point(57, 1);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 13);
+            this.lblDate.TabIndex = 3;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Green;
+            this.label26.Location = new System.Drawing.Point(23, 15);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(28, 13);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "Giờ:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Green;
+            this.label27.Location = new System.Drawing.Point(13, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(38, 13);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Ngày:";
             // 
             // panel14
             // 
@@ -281,16 +348,16 @@
             this.panel14.Controls.Add(this.label14);
             this.panel14.Controls.Add(this.label13);
             this.panel14.Controls.Add(this.label12);
-            this.panel14.Location = new System.Drawing.Point(935, 3);
+            this.panel14.Location = new System.Drawing.Point(735, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(161, 32);
+            this.panel14.Size = new System.Drawing.Size(193, 32);
             this.panel14.TabIndex = 2;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(74, 16);
+            this.label15.Location = new System.Drawing.Point(81, 16);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 13);
             this.label15.TabIndex = 4;
@@ -300,7 +367,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(74, 1);
+            this.label14.Location = new System.Drawing.Point(81, 1);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 13);
             this.label14.TabIndex = 3;
@@ -311,7 +378,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Green;
-            this.label13.Location = new System.Drawing.Point(14, 16);
+            this.label13.Location = new System.Drawing.Point(36, 16);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 13);
             this.label13.TabIndex = 2;
@@ -338,7 +405,6 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(675, 493);
             this.panelControl2.TabIndex = 2;
-            this.panelControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl2_Paint);
             // 
             // panel1
             // 
@@ -381,7 +447,10 @@
             this.columnHeader4,
             this.columnHeader5});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(2, 20);
             this.listView1.Name = "listView1";
@@ -617,7 +686,6 @@
             this.simpleButton1.Size = new System.Drawing.Size(94, 63);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Thanh Toán";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // panelControl4
             // 
@@ -856,6 +924,7 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.lblDetailEmployeeTableFood);
             this.panel13.Controls.Add(this.label11);
             this.panel13.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel13.Location = new System.Drawing.Point(11, 76);
@@ -876,6 +945,7 @@
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.lblDetailStatusTableFood);
             this.panel12.Controls.Add(this.label10);
             this.panel12.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel12.Location = new System.Drawing.Point(11, 39);
@@ -890,13 +960,13 @@
             this.label10.ForeColor = System.Drawing.Color.Green;
             this.label10.Location = new System.Drawing.Point(13, 6);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(155, 16);
+            this.label10.Size = new System.Drawing.Size(107, 16);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Tình trạng thanh toán:";
+            this.label10.Text = "Tình trạng bàn:";
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.comboBox1);
+            this.panel10.Controls.Add(this.cbbTatailTableFood);
             this.panel10.Controls.Add(this.label1);
             this.panel10.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel10.Location = new System.Drawing.Point(11, 5);
@@ -904,9 +974,9 @@
             this.panel10.Size = new System.Drawing.Size(318, 33);
             this.panel10.TabIndex = 12;
             // 
-            // comboBox1
+            // cbbTatailTableFood
             // 
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cbbTatailTableFood.AutoCompleteCustomSource.AddRange(new string[] {
             "huanit",
             "huantifff",
             "c",
@@ -921,11 +991,11 @@
             "i",
             "k",
             "l"});
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbbTatailTableFood.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbTatailTableFood.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbTatailTableFood.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTatailTableFood.FormattingEnabled = true;
+            this.cbbTatailTableFood.Items.AddRange(new object[] {
             "huanit",
             "huantifff",
             "cd",
@@ -940,10 +1010,10 @@
             "id",
             "kd",
             "ld"});
-            this.comboBox1.Location = new System.Drawing.Point(56, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 24);
-            this.comboBox1.TabIndex = 4;
+            this.cbbTatailTableFood.Location = new System.Drawing.Point(56, 6);
+            this.cbbTatailTableFood.Name = "cbbTatailTableFood";
+            this.cbbTatailTableFood.Size = new System.Drawing.Size(171, 24);
+            this.cbbTatailTableFood.TabIndex = 4;
             // 
             // label1
             // 
@@ -970,9 +1040,9 @@
             // 
             this.panel8.Controls.Add(this.groupControl1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(2, 31);
+            this.panel8.Location = new System.Drawing.Point(2, 60);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(421, 460);
+            this.panel8.Size = new System.Drawing.Size(421, 431);
             this.panel8.TabIndex = 2;
             // 
             // groupControl1
@@ -980,11 +1050,11 @@
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.simpleButton8);
-            this.groupControl1.Controls.Add(this.flowLayoutPanel1);
+            this.groupControl1.Controls.Add(this.flowpnlListTable);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(421, 460);
+            this.groupControl1.Size = new System.Drawing.Size(421, 431);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Danh Sách Bàn";
             // 
@@ -997,37 +1067,74 @@
             this.simpleButton8.TabIndex = 2;
             this.simpleButton8.Text = "Làm mới";
             // 
-            // flowLayoutPanel1
+            // flowpnlListTable
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 20);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(417, 438);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowpnlListTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowpnlListTable.Location = new System.Drawing.Point(2, 20);
+            this.flowpnlListTable.Name = "flowpnlListTable";
+            this.flowpnlListTable.Size = new System.Drawing.Size(417, 409);
+            this.flowpnlListTable.TabIndex = 0;
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.label23);
+            this.panel6.Controls.Add(this.label22);
+            this.panel6.Controls.Add(this.comboBoxEdit1);
             this.panel6.Controls.Add(this.simpleButton4);
             this.panel6.Controls.Add(this.searchControl1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(421, 29);
+            this.panel6.Size = new System.Drawing.Size(421, 58);
             this.panel6.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Green;
+            this.label23.Location = new System.Drawing.Point(55, 35);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(116, 16);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Nhân viên order:";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Green;
+            this.label22.Location = new System.Drawing.Point(107, 8);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(64, 16);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "Tên bàn:";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxEdit1.Location = new System.Drawing.Point(174, 33);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(187, 20);
+            this.comboBoxEdit1.TabIndex = 2;
             // 
             // simpleButton4
             // 
             this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton4.Location = new System.Drawing.Point(364, 5);
+            this.simpleButton4.Location = new System.Drawing.Point(364, 4);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(53, 21);
+            this.simpleButton4.Size = new System.Drawing.Size(53, 49);
             this.simpleButton4.TabIndex = 1;
-            this.simpleButton4.Text = "Tìm";
+            this.simpleButton4.Text = "Tìm Bàn";
             // 
             // searchControl1
             // 
             this.searchControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchControl1.Location = new System.Drawing.Point(3, 5);
+            this.searchControl1.Location = new System.Drawing.Point(174, 5);
             this.searchControl1.Name = "searchControl1";
             this.searchControl1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.searchControl1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1038,8 +1145,28 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl1.Properties.FilterCondition = DevExpress.Data.Filtering.FilterCondition.StartsWith;
             this.searchControl1.Properties.NullValuePrompt = "Nhập bàn muốn tìm kiếm....";
-            this.searchControl1.Size = new System.Drawing.Size(358, 22);
+            this.searchControl1.Size = new System.Drawing.Size(187, 22);
             this.searchControl1.TabIndex = 0;
+            // 
+            // lblDetailStatusTableFood
+            // 
+            this.lblDetailStatusTableFood.AutoSize = true;
+            this.lblDetailStatusTableFood.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailStatusTableFood.Location = new System.Drawing.Point(115, 6);
+            this.lblDetailStatusTableFood.Name = "lblDetailStatusTableFood";
+            this.lblDetailStatusTableFood.Size = new System.Drawing.Size(49, 16);
+            this.lblDetailStatusTableFood.TabIndex = 1;
+            this.lblDetailStatusTableFood.Text = "label24";
+            // 
+            // lblDetailEmployeeTableFood
+            // 
+            this.lblDetailEmployeeTableFood.AutoSize = true;
+            this.lblDetailEmployeeTableFood.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailEmployeeTableFood.Location = new System.Drawing.Point(87, 4);
+            this.lblDetailEmployeeTableFood.Name = "lblDetailEmployeeTableFood";
+            this.lblDetailEmployeeTableFood.Size = new System.Drawing.Size(49, 16);
+            this.lblDetailEmployeeTableFood.TabIndex = 2;
+            this.lblDetailEmployeeTableFood.Text = "label25";
             // 
             // FrmHome
             // 
@@ -1061,6 +1188,8 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
@@ -1110,6 +1239,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1144,7 +1275,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowpnlListTable;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.GroupControl groupControl4;
@@ -1159,7 +1290,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbTatailTableFood;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel3;
@@ -1202,6 +1333,16 @@
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnTrịToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lblDetailEmployeeTableFood;
+        private System.Windows.Forms.Label lblDetailStatusTableFood;
 
     }
 }

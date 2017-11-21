@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
@@ -66,6 +64,11 @@ namespace DAO
             }
             return result;
         }
+        /// <summary>
+        /// Lấy bàn bởi id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Table LoadTableFoodID(int id)
         {
             Table pro = null;
@@ -134,6 +137,23 @@ namespace DAO
                 ErrorLog.WriteLog(ex.Message);
             }
             return dt;
+        }
+
+        public List<Table> GetListTable()
+        {
+            List<Table> Result = new List<Table>();
+            DataTable dt = new DataTable();
+            String sqlString = @"EXEC dbo.loadAllTableFood";
+            dt = DataProvider.Instance.LoadAllTable(sqlString);
+            if(dt.Rows.Count>0)
+            {
+                foreach(DataRow item in dt.Rows)
+                {
+
+                    Result.Add(new Table(item));
+                }
+            }
+            return Result;
         }
 
     }
