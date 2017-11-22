@@ -28,6 +28,7 @@ namespace QuanLiQuanCafe
         private void LoadListTable()
         {
             List<Table> listTableFood = TableDAO.Instance.GetListTable();
+            flowpnlListTable.Controls.Clear();
             if(listTableFood.Count > 0)
             {
                 foreach(Table item in listTableFood)
@@ -40,7 +41,7 @@ namespace QuanLiQuanCafe
                     String text = item.Name;
                     if (item.Status == true)
                     {
-                        btn.BackColor = Color.DarkBlue;
+                        btn.BackColor = System.Drawing.Color.Green;
                         text = string.Format("{0}{1}Có Khách", text, System.Environment.NewLine);
                     }
                     else
@@ -50,22 +51,89 @@ namespace QuanLiQuanCafe
                     }
                     btn.Text = text;
                     btn.Click += btn_Click;
+                    btn.MouseHover += btn_MouseHover;
+                    btn.MouseLeave += btn_MouseLeave;
                     btn.Tag = item;
                     flowpnlListTable.Controls.Add(btn);
                 }
             }
         }
 
+        void btn_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            Table tb = ((sender as Button).Tag as Table);
+            if(tb.Status ==true)
+            {
+                btn.BackColor = System.Drawing.Color.Green;
+            }
+            else
+                btn.BackColor = Color.White;
+        }
+
+      
+
+        void btn_MouseHover(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = Color.SlateGray;
+        }
+
         void btn_Click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            lblIDFoodTable.Text = "";
+            lblNameFoodTable.Text = "";
+            lblDetailStatusTableFood.Text = "";
+            //lblNameTableFood.Text = "";
+            lblDetailEmployeeTableFood.Text = "";
+            lblStatusBillTableFood.Text = "";
             Table tb = ((sender as Button).Tag as Table);
-            MessageBox.Show(tb.Id.ToString());
+            //lblNameTableFood.Text = tb.Name; //cbbNameTableFood
+            lblIDFoodTable.Text = tb.Id.ToString();
+            lblNameFoodTable.Text = tb.Name;
+            
+            if (tb.Status)
+                lblDetailStatusTableFood.Text = "Có Khách";
+            else
+                lblDetailStatusTableFood.Text = "Bàn Trống";
+            ShowInfoTableFood(tb.Id.ToString());
         }
 
         private void ShowInfoTableFood(String IDTableFood)
         {
+            String sql = string.Format(@"SELECT checkout= CASE when dbo.Bill.stats = 'false' THEN N'Chưa Thanh Toán' WHEN dbo.Bill.stats = 'True' THEN N'Đã Thanh Toán' END, dbo.Employee.fullName FROM dbo.Bill INNER JOIN dbo.Employee ON Employee.idEmployee = Bill.idEmployee INNER JOIN dbo.TableFood ON TableFood.idTableFood = Bill.idTableFood WHERE dbo.Bill.stats = 'false' and dbo.TableFood.idTableFood = '{0}'", IDTableFood);
+            DataTable dt = DataProvider.Instance.LoadAllTable(sql);
+            if(dt.Rows.Count>0)
+            {
+                foreach(DataRow row in dt.Rows)
+                {
+                   
+                    //lblNameTableFood.Text = row["name"].ToString();
+                    
+                    //lblDetailStatusTableFood.Text = row["stats"].ToString();
+                    
+                    lblDetailEmployeeTableFood.Text = row["fullName"].ToString();
+                    
+                    lblStatusBillTableFood.Text = row["checkout"].ToString();
+                }
+            }
+        }
 
+
+        private void LoadComboboxs(ComboBox cbb, String sql, String ValueDisplay, String ValueMember)
+        {
+            try
+            {
+                DataTable dt = DataProvider.Instance.LoadAllTable(sql);
+                cbb.DataSource = dt;
+                cbb.ValueMember = ValueMember;
+                cbb.DisplayMember = ValueDisplay;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         /// <summary>
@@ -77,6 +145,10 @@ namespace QuanLiQuanCafe
         {
             LoadListTable();
             Assets();
+
+            LoadComboboxs(cbbCatalogFood, @"Select idFoodCategory, name from FoodCategory", "name", "idFoodCategory");
+
+
             for(int j =1; j<=20; j++)
             {
                  ListViewItem im = new ListViewItem(j.ToString());
@@ -105,5 +177,33 @@ namespace QuanLiQuanCafe
             FrmAdmin frmAdmin = new FrmAdmin();
             frmAdmin.ShowDialog();
         }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            LoadListTable();
+        }
+
+        
+
+        private void cbbCatalogFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbbCatalogFood.SelectedIndex != -1)
+            {
+                String Id = cbbCatalogFood.SelectedValue.ToString();
+                String sql = string.Format(@"Select idFood, name from Food where idFoodCategory = '{0}'", Id);
+                LoadComboboxs(cbbFood, sql, "name", "idFood");
+            }
+            
+        }
+
+        private void btnAddBillFood_Click(object sender, EventArgs e)
+        {
+            if(lblIDFoodTable.Text.Trim() !="")
+            {
+
+            }
+        }
+
+        
     }
 }

@@ -1,4 +1,4 @@
-ôUSE master
+USE master
 GO
 IF EXISTS(SELECT * FROM sysdatabases WHERE name='CoffeeRes')
 DROP DATABASE CoffeeRes
@@ -47,6 +47,7 @@ GO
 INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Cà Phê' )
 INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Sinh Tố' )
 INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Nước Ngọt')
+INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Thuốc Lá')
 INSERT INTO dbo.FoodCategory ( name ) VALUES  ( N'Danh Mục Món Phụ')
 
 CREATE TABLE Food
@@ -75,6 +76,69 @@ CREATE TABLE Employee
 )
 GO
 
+INSERT INTO dbo.Employee
+        ( fullName ,
+          sex ,
+          addres ,
+          phone ,
+          dayStart ,
+          salaryLevel ,
+          indicator ,
+          advance
+        )
+VALUES  ( N'Hoàng Thị Thiên' , -- fullName - nvarchar(100)
+          0 , -- sex - bit
+          N'Nghệ An' , -- addres - nvarchar(255)
+          '09766662' , -- phone - varchar(15)
+          GETDATE() , -- dayStart - date
+          1200000 , -- salaryLevel - money
+          GETDATE() , -- indicator - date
+          0  -- advance - money
+        )
+		GO
+        
+INSERT INTO dbo.Employee
+        ( fullName ,
+          sex ,
+          addres ,
+          phone ,
+          dayStart ,
+          salaryLevel ,
+          indicator ,
+          advance
+        )
+VALUES  ( N'Lê Đức Huy' , -- fullName - nvarchar(100)
+          1 , -- sex - bit
+          N'Quảng Trị' , -- addres - nvarchar(255)
+          '0978747474' , -- phone - varchar(15)
+          GETDATE() , -- dayStart - date
+          1500000 , -- salaryLevel - money
+          GETDATE() , -- indicator - date
+          0  -- advance - money
+        )
+		GO
+        
+INSERT INTO dbo.Employee
+        ( fullName ,
+          sex ,
+          addres ,
+          phone ,
+          dayStart ,
+          salaryLevel ,
+          indicator ,
+          advance
+        )
+VALUES  ( N'Hồ Xuân Thạch' , -- fullName - nvarchar(100)
+          1 , -- sex - bit
+          N'Gia Lai' , -- addres - nvarchar(255)
+          '0978520202' , -- phone - varchar(15)
+          GETDATE() , -- dayStart - date
+          1300000 , -- salaryLevel - money
+          GETDATE() , -- indicator - date
+          0  -- advance - money
+        )
+		GO
+        
 CREATE TABLE Bill
 (
 	idBill INT IDENTITY PRIMARY KEY,
@@ -87,6 +151,67 @@ CREATE TABLE Bill
 	FOREIGN KEY (idTableFood) REFERENCES dbo.TableFood(idTableFood),
 	FOREIGN KEY (idEmployee) REFERENCES dbo.Employee(idEmployee)
 )
+GO
+
+INSERT INTO dbo.Bill
+        ( DateCheckIn ,
+          DateCheckOut ,
+          idTableFood ,
+          idEmployee ,
+          stats
+        )
+		
+VALUES  ( GETDATE() , -- DateCheckIn - datetime
+          GETDATE() , -- DateCheckOut - datetime
+          3 , -- idTableFood - int
+          1 , -- idEmployee - int
+          0  -- stats - bit
+        )
+		GO
+ INSERT INTO dbo.Bill
+        ( DateCheckIn ,
+          DateCheckOut ,
+          idTableFood ,
+          idEmployee ,
+          stats
+        )
+VALUES  ( GETDATE() , -- DateCheckIn - datetime
+          GETDATE() , -- DateCheckOut - datetime
+          4 , -- idTableFood - int
+          1 , -- idEmployee - int
+          0  -- stats - bit
+        )
+
+		GO
+
+INSERT INTO dbo.Bill
+        ( DateCheckIn ,
+          DateCheckOut ,
+          idTableFood ,
+          idEmployee ,
+          stats
+        )
+VALUES  ( GETDATE() , -- DateCheckIn - datetime
+          GETDATE() , -- DateCheckOut - datetime
+          2 , -- idTableFood - int
+          2 , -- idEmployee - int
+          0  -- stats - bit
+        )
+GO
+
+INSERT INTO dbo.Bill
+        ( DateCheckIn ,
+          DateCheckOut ,
+          idTableFood ,
+          idEmployee ,
+          stats
+        )
+VALUES  ( GETDATE() , -- DateCheckIn - datetime
+          GETDATE() , -- DateCheckOut - datetime
+          1 , -- idTableFood - int
+          2 , -- idEmployee - int
+          0  -- stats - bit
+        )
 GO
 
 CREATE TABLE BillInfo
@@ -118,7 +243,6 @@ CREATE TABLE TimekeepDetail
 
 	FOREIGN KEY(idShifts) REFERENCES dbo.shifts(idShifts),
 	FOREIGN KEY(idEmployee) REFERENCES dbo.Employee(idEmployee)
-
 )
 GO
 INSERT INTO dbo.Account
@@ -415,3 +539,5 @@ GO
  END
 
  GO
+
+SELECT dbo.TableFood.name, checkout= CASE when dbo.Bill.stats = 'false' THEN N'Chưa Thanh Toán' WHEN dbo.Bill.stats = 'True' THEN N'Đã Thanh Toán' END ,[stats]= CASE WHEN dbo.TableFood.stats = 'True' THEN N'Có Người' WHEN dbo.TableFood.stats = 'False' THEN N'Trống' END, dbo.Employee.fullName FROM dbo.Bill INNER JOIN dbo.Employee ON Employee.idEmployee = Bill.idEmployee INNER JOIN dbo.TableFood ON TableFood.idTableFood = Bill.idTableFood
