@@ -138,7 +138,8 @@ VALUES  ( N'Hồ Xuân Thạch' , -- fullName - nvarchar(100)
           0  -- advance - money
         )
 		GO
-        
+
+
 CREATE TABLE Bill
 (
 	idBill INT IDENTITY PRIMARY KEY,
@@ -199,21 +200,6 @@ VALUES  ( GETDATE() , -- DateCheckIn - datetime
         )
 GO
 
-INSERT INTO dbo.Bill
-        ( DateCheckIn ,
-          DateCheckOut ,
-          idTableFood ,
-          idEmployee ,
-          stats
-        )
-VALUES  ( GETDATE() , -- DateCheckIn - datetime
-          GETDATE() , -- DateCheckOut - datetime
-          1 , -- idTableFood - int
-          2 , -- idEmployee - int
-          0  -- stats - bit
-        )
-GO
-
 CREATE TABLE BillInfo
 (
 	idBillInfo INT IDENTITY PRIMARY KEY,
@@ -225,6 +211,7 @@ CREATE TABLE BillInfo
 	FOREIGN KEY (idFood) REFERENCES dbo.Food(idFood)
 )
 GO
+
 
 CREATE TABLE Shifts -- ca lam viec
 (
@@ -539,5 +526,14 @@ GO
  END
 
  GO
+ 
 
-SELECT dbo.TableFood.name, checkout= CASE when dbo.Bill.stats = 'false' THEN N'Chưa Thanh Toán' WHEN dbo.Bill.stats = 'True' THEN N'Đã Thanh Toán' END ,[stats]= CASE WHEN dbo.TableFood.stats = 'True' THEN N'Có Người' WHEN dbo.TableFood.stats = 'False' THEN N'Trống' END, dbo.Employee.fullName FROM dbo.Bill INNER JOIN dbo.Employee ON Employee.idEmployee = Bill.idEmployee INNER JOIN dbo.TableFood ON TableFood.idTableFood = Bill.idTableFood
+ ALTER PROC UpdateBillInfo(@count INT, @idbill INT, @idFood INT)
+AS
+BEGIN
+	UPDATE dbo.BillInfo SET dbo.BillInfo.count = @count +(SELECT count FROM dbo.BillInfo WHERE dbo.BillInfo.idFood = @idFood AND dbo.BillInfo.idBill = @idbill) WHERE dbo.BillInfo.idFood = @idFood AND dbo.BillInfo.idBill = @idbill
+END
+GO
+
+
+

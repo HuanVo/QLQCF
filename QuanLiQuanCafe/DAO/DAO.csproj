@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDAO.cs" />
+    <Compile Include="BillDAO.cs" />
+    <Compile Include="BillInfo.cs" />
     <Compile Include="CatalogProductDAO.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="EmployeeDAO.cs" />
     <Compile Include="Encryption.cs" />

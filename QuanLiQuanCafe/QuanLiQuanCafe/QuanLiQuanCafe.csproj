@@ -180,6 +180,18 @@
   <ItemGroup>
     <Folder Include="Report\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_to_shopping_cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar_currency_sign.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -156,5 +156,22 @@ namespace DAO
             return Result;
         }
 
+        public bool UpdateTableFood(String sqlUpdate)
+        {
+            try
+            {
+                if (DataProvider.Instance.ExcuteNonQuery(sqlUpdate) > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                ErrorLog.WriteLog(e.Message);
+                
+            }
+            return false;
+        }
+
     }
 }
