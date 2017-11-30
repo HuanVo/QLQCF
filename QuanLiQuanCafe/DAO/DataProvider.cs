@@ -37,8 +37,9 @@ namespace DAO
         {
             try
             {
+                //Connection = new SqlConnection()
                 Connection = new SqlConnection(ConnectionString);
-                
+                //Connection.
                     if (Connection.State == ConnectionState.Broken || Connection.State == ConnectionState.Closed)
                     {
                         Connection.Open();

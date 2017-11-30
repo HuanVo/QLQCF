@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdmin));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl16 = new DevExpress.XtraEditors.PanelControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
@@ -231,7 +228,6 @@
             this.panelControl17 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl19 = new DevExpress.XtraEditors.GroupControl();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupControl20 = new DevExpress.XtraEditors.GroupControl();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
@@ -281,12 +277,8 @@
             this.textEdit59 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit60 = new DevExpress.XtraEditors.TextEdit();
             this.label78 = new System.Windows.Forms.Label();
-            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
@@ -452,42 +444,16 @@
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage2;
             this.xtraTabControl1.Size = new System.Drawing.Size(1098, 619);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
             this.xtraTabPage2,
             this.xtraTabPage3,
             this.xtraTabPage4,
             this.xtraTabPage5,
             this.xtraTabPage6,
-            this.xtraTabPage7,
-            this.xtraTabPage8});
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.panelControl15);
-            this.xtraTabPage1.Controls.Add(this.panelControl16);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage1.Text = "Thống Kê";
-            // 
-            // panelControl15
-            // 
-            this.panelControl15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl15.Location = new System.Drawing.Point(0, 0);
-            this.panelControl15.Name = "panelControl15";
-            this.panelControl15.Size = new System.Drawing.Size(580, 591);
-            this.panelControl15.TabIndex = 3;
-            // 
-            // panelControl16
-            // 
-            this.panelControl16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl16.Location = new System.Drawing.Point(580, 0);
-            this.panelControl16.Name = "panelControl16";
-            this.panelControl16.Size = new System.Drawing.Size(512, 591);
-            this.panelControl16.TabIndex = 2;
+            this.xtraTabPage7});
             // 
             // xtraTabPage2
             // 
@@ -495,7 +461,7 @@
             this.xtraTabPage2.Controls.Add(this.panelControl5);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage2.Text = "Danh Mục Đồ Uống";
+            this.xtraTabPage2.Text = "Danh mục đồ uống";
             // 
             // panelControl6
             // 
@@ -514,7 +480,7 @@
             this.groupControl6.Name = "groupControl6";
             this.groupControl6.Size = new System.Drawing.Size(566, 587);
             this.groupControl6.TabIndex = 3;
-            this.groupControl6.Text = "Mục Danh Sách";
+            this.groupControl6.Text = "Danh sách danh mục";
             // 
             // dtgrvCatalogProduct
             // 
@@ -551,7 +517,7 @@
             this.groupControl5.Name = "groupControl5";
             this.groupControl5.Size = new System.Drawing.Size(518, 587);
             this.groupControl5.TabIndex = 4;
-            this.groupControl5.Text = "Thông Tin Và Cập Nhật";
+            this.groupControl5.Text = "Thông tin và cập nhật";
             // 
             // groupControl7
             // 
@@ -567,7 +533,7 @@
             this.groupControl7.Name = "groupControl7";
             this.groupControl7.Size = new System.Drawing.Size(513, 135);
             this.groupControl7.TabIndex = 6;
-            this.groupControl7.Text = "Mục Cập Nhật";
+            this.groupControl7.Text = "Cập nhật danh mục";
             // 
             // btnDeleteCatalog
             // 
@@ -660,7 +626,7 @@
             this.groupControl8.Name = "groupControl8";
             this.groupControl8.Size = new System.Drawing.Size(514, 145);
             this.groupControl8.TabIndex = 5;
-            this.groupControl8.Text = "Mục Tìm Kiếm";
+            this.groupControl8.Text = "Tìm kiếm danh mục";
             // 
             // txtSearchNameCatalog
             // 
@@ -734,7 +700,7 @@
             this.xtraTabPage3.Controls.Add(this.panelControl12);
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage3.Text = "Đồ Uống";
+            this.xtraTabPage3.Text = "Đồ uống";
             // 
             // panelControl11
             // 
@@ -753,7 +719,7 @@
             this.groupControl9.Name = "groupControl9";
             this.groupControl9.Size = new System.Drawing.Size(576, 587);
             this.groupControl9.TabIndex = 5;
-            this.groupControl9.Text = "Mục Danh Sách";
+            this.groupControl9.Text = "Danh sách đồ uống";
             // 
             // dtgvProduct
             // 
@@ -790,7 +756,7 @@
             this.groupControl11.Name = "groupControl11";
             this.groupControl11.Size = new System.Drawing.Size(508, 587);
             this.groupControl11.TabIndex = 3;
-            this.groupControl11.Text = "Thông Tin Và Cập Nhật";
+            this.groupControl11.Text = "Thông tin và cập nhật";
             // 
             // groupControl12
             // 
@@ -812,7 +778,7 @@
             this.groupControl12.Name = "groupControl12";
             this.groupControl12.Size = new System.Drawing.Size(505, 197);
             this.groupControl12.TabIndex = 6;
-            this.groupControl12.Text = "Mục Cập Nhật";
+            this.groupControl12.Text = "Cập nhật đồ uống";
             // 
             // cbbIDCatalogProduct
             // 
@@ -963,7 +929,7 @@
             this.groupControl10.Name = "groupControl10";
             this.groupControl10.Size = new System.Drawing.Size(504, 165);
             this.groupControl10.TabIndex = 5;
-            this.groupControl10.Text = "Mục Tìm Kiếm";
+            this.groupControl10.Text = "Tìm kiếm đồ uống";
             // 
             // chkidcatalog
             // 
@@ -1120,7 +1086,7 @@
             this.groupControl21.Name = "groupControl21";
             this.groupControl21.Size = new System.Drawing.Size(576, 587);
             this.groupControl21.TabIndex = 5;
-            this.groupControl21.Text = "Mục Danh Sách";
+            this.groupControl21.Text = "Danh sách bàn";
             // 
             // dtgrvTableFood
             // 
@@ -1157,7 +1123,7 @@
             this.groupControl13.Name = "groupControl13";
             this.groupControl13.Size = new System.Drawing.Size(508, 587);
             this.groupControl13.TabIndex = 3;
-            this.groupControl13.Text = "Thông Tin Và Cập Nhật";
+            this.groupControl13.Text = "Thông tin và cập nhật";
             // 
             // groupControl22
             // 
@@ -1176,7 +1142,7 @@
             this.groupControl22.Name = "groupControl22";
             this.groupControl22.Size = new System.Drawing.Size(504, 168);
             this.groupControl22.TabIndex = 7;
-            this.groupControl22.Text = "Mục Cập Nhật";
+            this.groupControl22.Text = "Cập nhật bàn";
             // 
             // cbbStatusTable
             // 
@@ -1293,7 +1259,7 @@
             this.groupControl14.Name = "groupControl14";
             this.groupControl14.Size = new System.Drawing.Size(504, 117);
             this.groupControl14.TabIndex = 6;
-            this.groupControl14.Text = "Mục Tìm Kiếm";
+            this.groupControl14.Text = "Tìm kiếm bàn";
             // 
             // cbbSearchStsTable
             // 
@@ -1387,7 +1353,7 @@
             this.xtraTabPage5.Controls.Add(this.panelControl2);
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage5.Text = "Nhân Viên";
+            this.xtraTabPage5.Text = "Nhân viên";
             // 
             // panelControl1
             // 
@@ -1407,7 +1373,7 @@
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(572, 422);
             this.groupControl2.TabIndex = 2;
-            this.groupControl2.Text = "Mục Danh Sách";
+            this.groupControl2.Text = "Danh sách nhân viên";
             // 
             // dtgvEmployee
             // 
@@ -1435,7 +1401,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(572, 165);
             this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "Mục Tìm Kiếm";
+            this.groupControl1.Text = "Tìm kiếm nhân viên";
             // 
             // panel2
             // 
@@ -1701,7 +1667,7 @@
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(512, 587);
             this.groupControl3.TabIndex = 0;
-            this.groupControl3.Text = "Thông Tin Và Cập Nhật";
+            this.groupControl3.Text = "Thông tin và cập nhật";
             // 
             // groupControl4
             // 
@@ -1955,7 +1921,7 @@
             this.xtraTabPage6.Controls.Add(this.panelControl14);
             this.xtraTabPage6.Name = "xtraTabPage6";
             this.xtraTabPage6.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage6.Text = "Quản Trị";
+            this.xtraTabPage6.Text = "Quản trị";
             // 
             // panelControl13
             // 
@@ -2464,7 +2430,7 @@
             this.xtraTabPage7.Controls.Add(this.panelControl18);
             this.xtraTabPage7.Name = "xtraTabPage7";
             this.xtraTabPage7.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage7.Text = "Hóa Đơn";
+            this.xtraTabPage7.Text = "Hóa đơn";
             // 
             // panelControl17
             // 
@@ -2489,18 +2455,11 @@
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(2, 20);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(572, 400);
             this.dataGridView4.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
             // 
             // groupControl20
             // 
@@ -2975,12 +2934,6 @@
             this.label78.TabIndex = 0;
             this.label78.Text = "Mã";
             // 
-            // xtraTabPage8
-            // 
-            this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(1092, 591);
-            this.xtraTabPage8.Text = "xtraTabPage8";
-            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2992,9 +2945,6 @@
             this.Load += new System.EventHandler(this.FrmAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
@@ -3172,7 +3122,6 @@
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
@@ -3232,8 +3181,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl6;
         private DevExpress.XtraEditors.PanelControl panelControl10;
         private DevExpress.XtraEditors.PanelControl panelControl9;
-        private DevExpress.XtraEditors.PanelControl panelControl15;
-        private DevExpress.XtraEditors.PanelControl panelControl16;
         private DevExpress.XtraEditors.PanelControl panelControl17;
         private DevExpress.XtraEditors.GroupControl groupControl19;
         private System.Windows.Forms.DataGridView dataGridView4;
@@ -3348,8 +3295,6 @@
         private System.Windows.Forms.DateTimePicker txtEndDaySalaryEmployee;
         private System.Windows.Forms.ComboBox cbbSexEmployee;
         private System.Windows.Forms.ComboBox cbbSexSearchEmployee;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private DevExpress.XtraEditors.CheckEdit chkselect2;
         private DevExpress.XtraEditors.CheckEdit chkselect1;
         private DevExpress.XtraEditors.GroupControl groupControl12;

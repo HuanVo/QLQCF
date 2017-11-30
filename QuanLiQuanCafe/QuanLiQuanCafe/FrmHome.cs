@@ -7,16 +7,19 @@ using System.Linq;
 using DTO;
 using DAO;
 using System.Windows.Forms;
+using QuanLiQuanCafe.Report;
 
 namespace QuanLiQuanCafe
 {
     public partial class FrmHome : Form
     {
-        public FrmHome()
+        private String UserName;
+        public FrmHome(String UserName)
         {
             InitializeComponent();
+            this.UserName = UserName;
         }
-
+        
         private void Assets()
         {
             lblDate.Text = DateTime.Now.ToShortDateString();
@@ -82,6 +85,8 @@ namespace QuanLiQuanCafe
             lblIDFoodTable.Text = "";
             lblNameFoodTable.Text = "";
             lblDetailStatusTableFood.Text = "";
+            txtMoneyProduct.Text = "";
+            txtMoneyCheckout.Text = "";
             //lblNameTableFood.Text = "";
             lblDetailEmployeeTableFood.Text = "";
             lblStatusBillTableFood.Text = "";
@@ -99,6 +104,7 @@ namespace QuanLiQuanCafe
             // Show hoa don neu co
             int idBills = BillDAO.Instance.getIDBills(tb.Id);
             ShowBillInFor(idBills.ToString());
+            //idbillstatic = idBills.ToString();
         }
 
         private void ShowInfoTableFood(String IDTableFood)
@@ -122,7 +128,6 @@ namespace QuanLiQuanCafe
                 }
             }
         }
-
 
         private void LoadComboboxs(ComboBox cbb, String sql, String ValueDisplay, String ValueMember)
         {
@@ -149,6 +154,9 @@ namespace QuanLiQuanCafe
         {
             LoadListTable();
             Assets();
+            //load bàn vào cbb
+            LoadComboboxs(cbbTableSwitch, @"select idTableFood, name from TableFood", "name", "idTableFood");
+
             //
             LoadComboboxs(cbbCatalogFood, @"Select idFoodCategory, name from FoodCategory", "name", "idFoodCategory");
         }
@@ -158,12 +166,9 @@ namespace QuanLiQuanCafe
             this.Close();
         }
 
-      
-
         private void quảnTrịToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmAdmin frmAdmin = new FrmAdmin();
-            frmAdmin.ShowDialog();
+            
         }
 
         private void simpleButton8_Click(object sender, EventArgs e)
@@ -219,7 +224,6 @@ namespace QuanLiQuanCafe
             {
                 String idFood = cbbFood.SelectedValue.ToString();
                 int Count = Convert.ToInt32(numCountFood.Value) > 0 ? Convert.ToInt32(numCountFood.Value) : 1;
-                //String sqlgetIDBill = string.Format(@"select idBill from Bill where idTableFood = '{0}' and stats ='False'", TableFood);
                 int IDBill = BillDAO.Instance.getIDBills(Convert.ToInt32(TableFood));
                 if (lblDetailStatusTableFood.Text.Trim() != @"Có Khách") // Bàn đang trống
                 {
@@ -239,6 +243,7 @@ namespace QuanLiQuanCafe
                                    // 3 Mo Chi tiet cho hoa don va them mon
 
                                    IDBill = BillDAO.Instance.getIDBills(Convert.ToInt32(TableFood));
+                                   //idbillstatic = IDBill.ToString();
                                    if (BillInfo.Instance.CreateBillInfo(IDBill.ToString(), idFood, Count.ToString()))
                                    {
 
@@ -298,38 +303,387 @@ namespace QuanLiQuanCafe
             else
                 MessageBox.Show("Không có bàn nào được chọn");
         }
+
+        private String IDBillCheckout = "";
+
         public void ShowBillInFor(String IDBill)
         {
-            
             try
             {
-
                 String sql = string.Format(@"SELECT dbo.Food.name, dbo.BillInfo.count, dbo.Food.unit, dbo.Food.price, dbo.Food.price*dbo.BillInfo.count AS[sum] FROM dbo.BillInfo INNER JOIN dbo.Food ON Food.idFood = BillInfo.idFood WHERE idBill = '{0}'", IDBill);
                 DataTable dt = DataProvider.Instance.LoadAllTable(sql);
                 lsvCTHD.Items.Clear();
                 if (dt.Rows.Count > 0)
                 {
+                    Double MoneyProduct = 0;
                     int i = 0;
-                    
                     foreach (DataRow row in dt.Rows)
                     {
                         i = i + 1;
+                        
                         ListViewItem im = new ListViewItem(i.ToString());
+                        if(i%2 == 0)
+                        {
+                            im.BackColor = Color.FromArgb(255, 244, 202);
+                        }
                         im.SubItems.Add(row["name"].ToString());
                         im.SubItems.Add(row["unit"].ToString());
                         im.SubItems.Add(row["count"].ToString());
-                        im.SubItems.Add(String.Format("{0:0,0 vnđ}", row["price"]));
-                        im.SubItems.Add(String.Format("{0:0,0 vnđ}", row["sum"]));
+                        im.SubItems.Add(String.Format("{0:0,0  }", row["price"]));
+                        im.SubItems.Add(String.Format("{0:0,0  }", row["sum"]));
+                        MoneyProduct = MoneyProduct + Convert.ToDouble(row["sum"].ToString());
                         lsvCTHD.Items.Add(im);
                     }
-                    
+                    txtMoneyProduct.Text = string.Format("{0:0,0  }", MoneyProduct);
+                    IDBillCheckout = IDBill;
                 }
+                //ShowCheckOut(IDBill);
             } 
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
            
+        }
+       
+        public void TextChange()
+        {
+            if (txtMoneyProduct.Text != "")
+            {
+                Double MoneyProduct = Convert.ToDouble(txtMoneyProduct.Text);
+
+                int SaleOff = Convert.ToInt32(numSaleOff.Value);
+                int Thue = Convert.ToInt32(numThue.Value);
+                // Double MoneyCheckOut = 0;
+                Double TienThue = 0;
+                Double TienSaleOff = 0;
+                if (SaleOff > 0)
+                {
+                    TienSaleOff = (MoneyProduct * SaleOff) / 100;
+                }
+                if (Thue > 0)
+                {
+                    TienThue = MoneyProduct * Thue / 100;
+                    txtMoneyCheckout.Text = string.Format("{0:0,0  }", MoneyProduct - TienSaleOff + TienThue);
+                }
+                else
+                {
+                    txtMoneyCheckout.Text = string.Format("{0:0,0  }", MoneyProduct - TienSaleOff);
+                }
+            }
+        }
+
+        private void txtMoneyProduct_TextChanged(object sender, EventArgs e)
+        {
+            TextChange();
+                //MessageBox.Show("f");
+
+        }
+
+        private void numSaleOff_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextChange();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void numThue_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextChange();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+           try
+           {
+                // Kiểm tra Hóa đơn đã được thanh toán hay chưa.
+            if (lblDetailStatusTableFood.Text.Trim() == @"Có Khách")
+            {
+                if (MessageBox.Show("Xác nhận thanh toán", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (BillDAO.Instance.CheckThanhToan(IDBillCheckout))
+                    {
+                        // nếu chưa thì thực hiện thanh toán, đóng hóa đơn, đóng bàn
+                        // 1 Thanh Toán.
+                        CheckOutBill(IDBillCheckout);
+                        // 2. Đóng Hóa Đơn. // 3. Đóng bàn.
+                        String sqlCloseTable = string.Format(@"update TableFood set stats ='False' where idTableFood ='{0}'", lblIDFoodTable.Text);
+                        if (BillDAO.Instance.CloseBill(IDBillCheckout) == true && TableDAO.Instance.UpdateTableFood(sqlCloseTable) == true)
+                        {
+                            LoadListTable();
+                            MessageBox.Show("Thanh toán thành công!");
+                        }
+                        else
+                            MessageBox.Show("Thanh toán không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bàn trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           }
+            catch(Exception ex)
+           {
+               MessageBox.Show(ex.Message);
+           }
+        }
+
+        private void CheckOutBill(String idbill)
+        {
+            String SaleOff = numSaleOff.Value.ToString();
+            String VAT = numThue.Value.ToString();
+            FrmReport frmreport = new FrmReport(idbill, SaleOff, VAT);
+            frmreport.Show();
+        }
+
+        private void btnSwitchTable_Click(object sender, EventArgs e)
+        {
+            // 1 Kiểm tra bàn chuyển có đang mở hay không.
+            try
+            {
+                String TableFoodSwitch = cbbTableSwitch.SelectedValue.ToString();
+                String TableFood = lblIDFoodTable.Text.Trim();
+                if (TableFood != "" && TableFood != TableFoodSwitch)
+                {
+                    int IDBill = BillDAO.Instance.getIDBills(Convert.ToInt32(TableFood));
+                    int IDBillMoi = BillDAO.Instance.getIDBills(Convert.ToInt32(TableFoodSwitch));
+                    if (lblDetailStatusTableFood.Text.Trim() != @"Có Khách") // Bàn đang trống
+                    {
+                        MessageBox.Show("Bàn không có gì để chuyển");
+                    }
+                    else
+                    {
+                        if (MessageBox.Show(string.Format("Xác nhận chuyển từ bàn {0} đến bàn {1}", lblNameFoodTable.Text, cbbTableSwitch.GetItemText(this.cbbTableSwitch.SelectedItem)) + "?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            // 2 Kiểm tra bàn được chuyển có khách hay không
+                            if (TableDAO.Instance.CheckTableIsEmpty(TableFoodSwitch)) // bàn đang trống
+                            {
+                                // 3 nếu không có, thực hiện mở bàn và gộp bàn - đóng bàn cũ.
+                                // chuyển ID table của bill sang id table bàn muốn chuyển;
+                                TableDAO.Instance.CloseTable(TableFood, false);
+                                TableDAO.Instance.CloseTable(TableFoodSwitch, true);
+                                String sqlChuyenban = string.Format(@"update Bill set idTableFood ='{0}' where idBill = '{1}'", TableFoodSwitch, IDBill);
+                                if (BillDAO.Instance.UpdateBill(sqlChuyenban))
+                                {
+                                    LoadListTable();
+                                    MessageBox.Show(string.Format("Chuyển thành công từ bàn {0} đến bàn {1}", lblNameFoodTable.Text, cbbTableSwitch.GetItemText(this.cbbTableSwitch.SelectedItem)));
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Không thể chuyển bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else // bàn có người
+                            {
+                                // 4 nếu có. thực hiện gộp bàn - đóng bàn cũ
+                                // 1 chuyển toàn bộ đồ uống qua idbill mới
+                                // 2 Delete bill cũ.
+                                // 3 Đưa bàn về trạng thái trống
+                                String sqlChuyenBan = string.Format(@"Update BillInfo set idBill = '{0}' where idBill ='{1}'", IDBillMoi, IDBill);
+                                String sqlDelBillOld = string.Format(@"delete from Bill where idBill ='{0}' and stats = 'False'", IDBill);
+                                if (DataProvider.Instance.ExcuteNonQuery(sqlChuyenBan) > 0 && DataProvider.Instance.ExcuteNonQuery(sqlDelBillOld) > 0)
+                                {
+                                    TableDAO.Instance.CloseTable(TableFood, false);
+                                    LoadListTable();
+                                    MessageBox.Show(string.Format("Chuyển thành công từ bàn {0} đến bàn {1}", lblNameFoodTable.Text, cbbTableSwitch.GetItemText(this.cbbTableSwitch.SelectedItem)));
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Không thể chuyển bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnResetCheckout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra Hóa đơn đã được thanh toán hay chưa.
+                if (lblDetailStatusTableFood.Text.Trim() == @"Có Khách")
+                {
+                    
+                        if (BillDAO.Instance.CheckThanhToan(IDBillCheckout))
+                        {
+                            CheckOutBill(IDBillCheckout);
+                        }
+                }
+                else
+                {
+                    MessageBox.Show("Bàn trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDelCheckout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String TableFood = lblIDFoodTable.Text.Trim();
+                int IDBill = BillDAO.Instance.getIDBills(Convert.ToInt32(TableFood));
+                if (IDBill > 0)
+                {
+                   if(MessageBox.Show("Xóa đơn hàng?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                   {
+                       if (BillInfo.Instance.DeleteBillInfo(IDBill.ToString()))
+                       {
+                           // delete bill from Bill table
+                           String sqlDelBill = string.Format(@"delete from Bill where idBill = '{0}'", IDBill);
+                           if (BillDAO.Instance.UpdateBill(sqlDelBill))
+                           {
+                               // Clear table with IDbill
+                               if (TableDAO.Instance.CloseTable(TableFood, false))
+                               {
+                                   LoadListTable();
+                                   ShowBillInFor(IDBill.ToString());
+                                   txtMoneyProduct.Text = "";
+                                   txtMoneyCheckout.Text = "";
+                                   MessageBox.Show("Xóa thành công!");
+
+                               }
+                           }
+                       }
+                   }
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            String TableName = txtTableNameSearch.Text.Trim();
+            int Status = cbbStatusTableSearch.SelectedIndex; // 1 có khách, 2 trống
+            String sqlsss = "";
+            if(TableName !="")
+            {
+                sqlsss = string.Format(@"name ='{0}'", TableName);
+            }
+            String sts = "";
+            if(Status>0)
+            {
+                if(Status == 1)
+                {
+                    sts = @"stats = '" + true + "' ORDER BY stats";
+                    //sqlsss = sqlsss + sts;
+                }
+                else
+                {
+                    sts = @"stats = '" + false + "' ORDER BY stats";
+                    //sqlsss = sqlsss + sts;
+                }
+                if(sqlsss !="")
+                {
+                    sqlsss = string.Format("{0} and {1}", sqlsss, sts);
+                }
+                else
+                {
+                    sqlsss = sts;
+                }
+                
+            }
+            if(sqlsss !="")
+            {
+                LoadListTableSearch(sqlsss);
+            }
+            else
+            {
+                LoadListTable();
+            }
+
+        }
+
+        private void LoadListTableSearch(String sql)
+        {
+            List<Table> listTableFood = TableDAO.Instance.GetListTableBysql(sql);
+            flowpnlListTable.Controls.Clear();
+            if (listTableFood.Count > 0)
+            {
+                foreach (Table item in listTableFood)
+                {
+                    Button btn = new Button();
+                    btn.Width = 97;
+                    btn.Height = 70;
+                    btn.Name = item.Id.ToString();
+                    //btn.Text = item.Name;
+                    String text = item.Name;
+                    if (item.Status == true)
+                    {
+                        btn.BackColor = System.Drawing.Color.Green;
+                        text = string.Format("{0}{1}Có Khách", text, System.Environment.NewLine);
+                    }
+                    else
+                    {
+                        btn.BackColor = Color.White;
+                        text = string.Format("{0}{1}Bàn Trống", text, System.Environment.NewLine);
+                    }
+                    btn.Text = text;
+                    btn.Click += btn_Click;
+                    btn.MouseHover += btn_MouseHover;
+                    btn.MouseLeave += btn_MouseLeave;
+                    btn.Tag = item;
+                    flowpnlListTable.Controls.Add(btn);
+                }
+            }
+        }
+
+        private void cậpNhậtDanhMụcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdmin frmAdmin = new FrmAdmin();
+            frmAdmin.ShowDialog();
+        }
+
+        private void báoCáoThốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportAdmin frm = new FrmReportAdmin();
+            frm.ShowDialog();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void đăngXuấtChươngTrìnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void thôngTinVàCậpNhậtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdminInFo frm = new FrmAdminInFo(UserName);
+            frm.ShowDialog();
         }
     }
 }

@@ -35,11 +35,11 @@ namespace QuanLiQuanCafe
         private void btnLogin_Click(object sender, EventArgs e)
         {
             String UserName = txtUserName.Text;
-            String Password =Encryption.Instance.md5(txtPassword.Text);
+            String Password = Encryption.Instance.md5(txtPassword.Text);
             //Lưu tài khoản đăng nhập
             if (ckeSaveAccount.Checked == true)
             {
-                saveAcccount(UserName, Password, "True");
+                saveAcccount(UserName, txtPassword.Text, "True");
             }
             else
             {
@@ -49,7 +49,7 @@ namespace QuanLiQuanCafe
             //Xử lí đăng nhập
             if(AccountDAO.Instance.CheckLogin(UserName, Password))
             {
-                FrmHome frmHome = new FrmHome();
+                FrmHome frmHome = new FrmHome(UserName);
                 this.Hide();
                 frmHome.ShowDialog();
                 this.Show();

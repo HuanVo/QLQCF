@@ -52,5 +52,22 @@ namespace DAO
             }
             return false;
         }
+
+        public bool DeleteBillInfo(String IDBill)
+        {
+            String sqlOpenBill = string.Format(@"delete from BillInfo where idBill = '{0}'", IDBill);
+            try
+            {
+                if (DataProvider.Instance.ExcuteNonQuery(sqlOpenBill) > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception exx)
+            {
+                ErrorLog.WriteLog(exx.Message);
+            }
+            return false;
+        }
     }
 }

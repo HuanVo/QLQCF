@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginAdmin));
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -121,9 +121,9 @@
             this.simpleButton1.Location = new System.Drawing.Point(240, 1);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 19);
-            toolTipItem5.Text = "Trợ giúp đăng nhập và các vấn đề liên quan.";
-            superToolTip5.Items.Add(toolTipItem5);
-            this.simpleButton1.SuperTip = superToolTip5;
+            toolTipItem1.Text = "Trợ giúp đăng nhập và các vấn đề liên quan.";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.simpleButton1.SuperTip = superToolTip1;
             this.simpleButton1.TabIndex = 14;
             this.simpleButton1.Text = "Hỗ Trợ";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -139,9 +139,9 @@
             this.ckeSaveAccount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.ckeSaveAccount.Properties.Caption = "Lưu tài khoản";
             this.ckeSaveAccount.Size = new System.Drawing.Size(97, 20);
-            toolTipItem6.Text = "Lưu lại mật khẩu cho các lần đăng nhập sau.";
-            superToolTip6.Items.Add(toolTipItem6);
-            this.ckeSaveAccount.SuperTip = superToolTip6;
+            toolTipItem2.Text = "Lưu lại mật khẩu cho các lần đăng nhập sau.";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.ckeSaveAccount.SuperTip = superToolTip2;
             this.ckeSaveAccount.TabIndex = 13;
             // 
             // panel3
@@ -158,9 +158,9 @@
             this.btnExit.Location = new System.Drawing.Point(230, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(85, 24);
-            toolTipItem2.Text = "Thoát khỏi chương trình quản lí.\r\n";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnExit.SuperTip = superToolTip2;
+            toolTipItem3.Text = "Thoát khỏi chương trình quản lí.\r\n";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnExit.SuperTip = superToolTip3;
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -175,9 +175,9 @@
             this.btnLogin.Location = new System.Drawing.Point(139, 3);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(85, 24);
-            toolTipItem7.Text = "Đăng nhập hệ thống.";
-            superToolTip7.Items.Add(toolTipItem7);
-            this.btnLogin.SuperTip = superToolTip7;
+            toolTipItem4.Text = "Đăng nhập hệ thống.";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnLogin.SuperTip = superToolTip4;
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -199,7 +199,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(178, 20);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "admin";
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPassword.UseSystemPasswordChar = true;
             // 

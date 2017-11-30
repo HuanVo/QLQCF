@@ -21,7 +21,6 @@ namespace DAO
 
         private TableDAO()
         { }
-
         /// <summary>
         ///  Load bàn đưa vao datagridview
         /// </summary>
@@ -38,6 +37,7 @@ namespace DAO
             {
                 ErrorLog.WriteLog(ex.Message);
             }
+            
             return dt;
         }
 
@@ -72,6 +72,7 @@ namespace DAO
         public Table LoadTableFoodID(int id)
         {
             Table pro = null;
+           
             try
             {
                 String sqlquery = String.Format(@"getTableTableFoodByID '{0}'", id);
@@ -156,6 +157,23 @@ namespace DAO
             return Result;
         }
 
+        public List<Table> GetListTableBysql(String sql)
+        {
+            List<Table> Result = new List<Table>();
+            DataTable dt = new DataTable();
+            String sqlString = @"select * from TableFood where "+ sql ;
+            dt = DataProvider.Instance.LoadAllTable(sqlString);
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+
+                    Result.Add(new Table(item));
+                }
+            }
+            return Result;
+        }
+
         public bool UpdateTableFood(String sqlUpdate)
         {
             try
@@ -173,5 +191,37 @@ namespace DAO
             return false;
         }
 
+        public bool CheckTableIsEmpty(String IDTable)
+        {
+            try
+            {
+                String sql = string.Format(@"Select count(*) from TableFood where idTableFood = '{0}' and stats = 'False'", IDTable);
+                if (DataProvider.Instance.ExcuteScaler(sql) > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                ErrorLog.WriteLog(e.Message);
+
+            }
+            return false;
+        }
+
+        public bool CloseTable(String IDTable, bool sts)
+        {
+            try
+            {
+                String sqlgetIDBill = string.Format(@"update TableFood set stats ='{0}' where idTableFood = '{1}'", sts, IDTable);
+                if (DataProvider.Instance.ExcuteNonQuery(sqlgetIDBill) > 0)
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog(ex.Message);
+            }
+            return false;
+        }
     }
 }
