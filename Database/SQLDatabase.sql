@@ -146,6 +146,8 @@ CREATE TABLE Bill
 	DateCheckIn DATETIME NOT NULL DEFAULT GETDATE(),
 	DateCheckOut DATETIME,
 	idTableFood INT NOT NULL,
+	saleoff INT DEFAULT 0,
+	vat INT DEFAULT 0,
 	idEmployee INT NOT NULL, -- Ma nhan vien thanh toan
 	stats BIT NOT NULL DEFAULT 0 -- 1: đã thanh toán && 0: chưa thanh toán
 	
@@ -528,12 +530,25 @@ GO
  GO
  
 
- ALTER PROC UpdateBillInfo(@count INT, @idbill INT, @idFood INT)
+ CREATE PROC UpdateBillInfo(@count INT, @idbill INT, @idFood INT)
 AS
 BEGIN
 	UPDATE dbo.BillInfo SET dbo.BillInfo.count = @count +(SELECT count FROM dbo.BillInfo WHERE dbo.BillInfo.idFood = @idFood AND dbo.BillInfo.idBill = @idbill) WHERE dbo.BillInfo.idFood = @idFood AND dbo.BillInfo.idBill = @idbill
 END
 GO
 
+/*
+	Load dữ liệu báo cáo thống kê.
+*/
+ CREATE PROC LoadTKBC
+AS
+BEGIN
+	SELECT dbo.BillInfo.idBill, dbo.Bill.DateCheckOut, dbo.Bill.saleoff, dbo.Bill.vat, SUM(dbo.BillInfo.count*dbo.Food.price) [sum]
+	 FROM dbo.BillInfo
+	  INNER JOIN dbo.Food ON dbo.BillInfo.idFood = dbo.Food.idFood
+	  INNER JOIN dbo.Bill ON Bill.idBill = BillInfo.idBill
+	 GROUP BY dbo.BillInfo.idBill, saleoff, vat, DateCheckOut
+END
+GO
 
 

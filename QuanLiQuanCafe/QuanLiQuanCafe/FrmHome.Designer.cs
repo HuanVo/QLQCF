@@ -41,7 +41,17 @@
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chấmCôngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thanhToánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tìmKiếmBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thiếtLậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnTrịToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoThốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cậpNhậtDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tàiKhoảnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinVàCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtChươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panel15 = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
@@ -79,6 +89,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.btnResetCheckout = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelCheckout = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCheckout = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -87,6 +100,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbbCatalogFood = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAddBillFood = new DevExpress.XtraEditors.SimpleButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,6 +108,7 @@
             this.numCountFood = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnSwitchTable = new DevExpress.XtraEditors.SimpleButton();
             this.cbbTableSwitch = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -119,27 +134,12 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.flowpnlListTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnResetTable = new DevExpress.XtraEditors.SimpleButton();
             this.cbbStatusTableSearch = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtTableNameSearch = new DevExpress.XtraEditors.SearchControl();
-            this.tàiKhoảnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnResetTable = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnResetCheckout = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelCheckout = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCheckout = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAddBillFood = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSwitchTable = new DevExpress.XtraEditors.SimpleButton();
-            this.chấmCôngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thanhToánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tìmKiếmBànToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thiếtLậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoThốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cậpNhậtDanhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinVàCậpNhậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtChươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtTableNameSearch = new DevExpress.XtraEditors.SearchControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -216,6 +216,44 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.menuToolStripMenuItem.Text = "Tùy chọn";
             // 
+            // chấmCôngNhânViênToolStripMenuItem
+            // 
+            this.chấmCôngNhânViênToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.dollar_currency_sign;
+            this.chấmCôngNhânViênToolStripMenuItem.Name = "chấmCôngNhânViênToolStripMenuItem";
+            this.chấmCôngNhânViênToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.C)));
+            this.chấmCôngNhânViênToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.chấmCôngNhânViênToolStripMenuItem.Text = "Chấm công nhân viên";
+            // 
+            // thanhToánToolStripMenuItem
+            // 
+            this.thanhToánToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.add_to_shopping_cart;
+            this.thanhToánToolStripMenuItem.Name = "thanhToánToolStripMenuItem";
+            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.thanhToánToolStripMenuItem.Text = "Thanh toán";
+            // 
+            // tìmKiếmBànToolStripMenuItem
+            // 
+            this.tìmKiếmBànToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.search;
+            this.tìmKiếmBànToolStripMenuItem.Name = "tìmKiếmBànToolStripMenuItem";
+            this.tìmKiếmBànToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.tìmKiếmBànToolStripMenuItem.Text = "Tìm kiếm bàn";
+            // 
+            // thiếtLậpToolStripMenuItem
+            // 
+            this.thiếtLậpToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.tools;
+            this.thiếtLậpToolStripMenuItem.Name = "thiếtLậpToolStripMenuItem";
+            this.thiếtLậpToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.thiếtLậpToolStripMenuItem.Text = "Thiết lập";
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.delete;
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
+            // 
             // quảnTrịToolStripMenuItem1
             // 
             this.quảnTrịToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -226,6 +264,47 @@
             this.quảnTrịToolStripMenuItem1.Size = new System.Drawing.Size(64, 20);
             this.quảnTrịToolStripMenuItem1.Text = "Quản Trị";
             this.quảnTrịToolStripMenuItem1.Click += new System.EventHandler(this.quảnTrịToolStripMenuItem1_Click);
+            // 
+            // báoCáoThốngKêToolStripMenuItem
+            // 
+            this.báoCáoThốngKêToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.report;
+            this.báoCáoThốngKêToolStripMenuItem.Name = "báoCáoThốngKêToolStripMenuItem";
+            this.báoCáoThốngKêToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.báoCáoThốngKêToolStripMenuItem.Text = "Báo cáo thống kê";
+            this.báoCáoThốngKêToolStripMenuItem.Click += new System.EventHandler(this.báoCáoThốngKêToolStripMenuItem_Click);
+            // 
+            // cậpNhậtDanhMụcToolStripMenuItem
+            // 
+            this.cậpNhậtDanhMụcToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.edit_page;
+            this.cậpNhậtDanhMụcToolStripMenuItem.Name = "cậpNhậtDanhMụcToolStripMenuItem";
+            this.cậpNhậtDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.cậpNhậtDanhMụcToolStripMenuItem.Text = "Cập nhật danh mục";
+            this.cậpNhậtDanhMụcToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtDanhMụcToolStripMenuItem_Click);
+            // 
+            // tàiKhoảnToolStripMenuItem1
+            // 
+            this.tàiKhoảnToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinVàCậpNhậtToolStripMenuItem,
+            this.đăngXuấtChươngTrìnhToolStripMenuItem});
+            this.tàiKhoảnToolStripMenuItem1.Name = "tàiKhoảnToolStripMenuItem1";
+            this.tàiKhoảnToolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
+            this.tàiKhoảnToolStripMenuItem1.Text = "Tài khoản";
+            // 
+            // thôngTinVàCậpNhậtToolStripMenuItem
+            // 
+            this.thôngTinVàCậpNhậtToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.edit_profile;
+            this.thôngTinVàCậpNhậtToolStripMenuItem.Name = "thôngTinVàCậpNhậtToolStripMenuItem";
+            this.thôngTinVàCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.thôngTinVàCậpNhậtToolStripMenuItem.Text = "Thông tin và cập nhật";
+            this.thôngTinVàCậpNhậtToolStripMenuItem.Click += new System.EventHandler(this.thôngTinVàCậpNhậtToolStripMenuItem_Click);
+            // 
+            // đăngXuấtChươngTrìnhToolStripMenuItem
+            // 
+            this.đăngXuấtChươngTrìnhToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources._lock;
+            this.đăngXuấtChươngTrìnhToolStripMenuItem.Name = "đăngXuấtChươngTrìnhToolStripMenuItem";
+            this.đăngXuấtChươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.đăngXuấtChươngTrìnhToolStripMenuItem.Text = "Đăng xuất chương trình";
+            this.đăngXuấtChươngTrìnhToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtChươngTrìnhToolStripMenuItem_Click);
             // 
             // panelControl1
             // 
@@ -589,7 +668,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(47, 38);
+            this.label5.Location = new System.Drawing.Point(51, 38);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 16);
             this.label5.TabIndex = 5;
@@ -599,7 +678,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 11);
+            this.label4.Location = new System.Drawing.Point(8, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 16);
             this.label4.TabIndex = 4;
@@ -615,6 +694,64 @@
             this.panelControl8.Name = "panelControl8";
             this.panelControl8.Size = new System.Drawing.Size(200, 67);
             this.panelControl8.TabIndex = 0;
+            // 
+            // btnResetCheckout
+            // 
+            this.btnResetCheckout.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetCheckout.Appearance.Options.UseFont = true;
+            this.btnResetCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnResetCheckout.Image")));
+            this.btnResetCheckout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnResetCheckout.Location = new System.Drawing.Point(5, 4);
+            this.btnResetCheckout.Name = "btnResetCheckout";
+            this.btnResetCheckout.Size = new System.Drawing.Size(94, 30);
+            toolTipItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            toolTipItem1.Appearance.Options.UseImage = true;
+            toolTipItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem1.Image")));
+            toolTipItem1.Text = "Xem trước hóa đơn trước khi in.";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnResetCheckout.SuperTip = superToolTip1;
+            this.btnResetCheckout.TabIndex = 2;
+            this.btnResetCheckout.Text = "Xem HĐ";
+            this.btnResetCheckout.Click += new System.EventHandler(this.btnResetCheckout_Click);
+            // 
+            // btnDelCheckout
+            // 
+            this.btnDelCheckout.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelCheckout.Appearance.Options.UseFont = true;
+            this.btnDelCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnDelCheckout.Image")));
+            this.btnDelCheckout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnDelCheckout.Location = new System.Drawing.Point(6, 36);
+            this.btnDelCheckout.Name = "btnDelCheckout";
+            this.btnDelCheckout.Size = new System.Drawing.Size(94, 30);
+            toolTipItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            toolTipItem2.Appearance.Options.UseImage = true;
+            toolTipItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem2.Image")));
+            toolTipItem2.Text = "Xóa hóa đơn hiện tại";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnDelCheckout.SuperTip = superToolTip2;
+            this.btnDelCheckout.TabIndex = 1;
+            this.btnDelCheckout.Text = "Hủy";
+            this.btnDelCheckout.Click += new System.EventHandler(this.btnDelCheckout_Click);
+            // 
+            // btnCheckout
+            // 
+            this.btnCheckout.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.Appearance.Options.UseFont = true;
+            this.btnCheckout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
+            this.btnCheckout.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnCheckout.Location = new System.Drawing.Point(104, 2);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(94, 63);
+            toolTipItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            toolTipItem3.Appearance.Options.UseImage = true;
+            toolTipItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem3.Image")));
+            toolTipItem3.Text = "Thanh toán và lưu hóa đơn.";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnCheckout.SuperTip = superToolTip3;
+            this.btnCheckout.TabIndex = 0;
+            this.btnCheckout.Text = "Thanh toán";
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // panelControl4
             // 
@@ -707,6 +844,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Loại đồ uống:";
             // 
+            // btnAddBillFood
+            // 
+            this.btnAddBillFood.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBillFood.Appearance.Options.UseFont = true;
+            this.btnAddBillFood.Image = global::QuanLiQuanCafe.Properties.Resources.add;
+            this.btnAddBillFood.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnAddBillFood.Location = new System.Drawing.Point(120, 135);
+            this.btnAddBillFood.Name = "btnAddBillFood";
+            this.btnAddBillFood.Size = new System.Drawing.Size(70, 25);
+            toolTipItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            toolTipItem4.Appearance.Options.UseImage = true;
+            toolTipItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem4.Image")));
+            toolTipItem4.Text = "Thêm món vào hóa đơn.\r\nBớt món bằng cách thêm món với số lượng < 0.";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnAddBillFood.SuperTip = superToolTip4;
+            this.btnAddBillFood.TabIndex = 20;
+            this.btnAddBillFood.Text = "Thêm";
+            this.btnAddBillFood.Click += new System.EventHandler(this.btnAddBillFood_Click);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.cbbFood);
@@ -785,6 +941,24 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(319, 32);
             this.panel9.TabIndex = 9;
+            // 
+            // btnSwitchTable
+            // 
+            this.btnSwitchTable.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitchTable.Appearance.Options.UseFont = true;
+            this.btnSwitchTable.Image = ((System.Drawing.Image)(resources.GetObject("btnSwitchTable.Image")));
+            this.btnSwitchTable.Location = new System.Drawing.Point(223, 2);
+            this.btnSwitchTable.Name = "btnSwitchTable";
+            this.btnSwitchTable.Size = new System.Drawing.Size(70, 25);
+            toolTipItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            toolTipItem5.Appearance.Options.UseImage = true;
+            toolTipItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem5.Image")));
+            toolTipItem5.Text = "Chuyển hoặc gộp bàn hiện tại đến bàn mới.";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.btnSwitchTable.SuperTip = superToolTip5;
+            this.btnSwitchTable.TabIndex = 8;
+            this.btnSwitchTable.Text = "Chuyển";
+            this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
             // 
             // cbbTableSwitch
             // 
@@ -1053,6 +1227,17 @@
             this.panel6.Size = new System.Drawing.Size(421, 58);
             this.panel6.TabIndex = 1;
             // 
+            // btnResetTable
+            // 
+            this.btnResetTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResetTable.Image = ((System.Drawing.Image)(resources.GetObject("btnResetTable.Image")));
+            this.btnResetTable.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnResetTable.Location = new System.Drawing.Point(347, 29);
+            this.btnResetTable.Name = "btnResetTable";
+            this.btnResetTable.Size = new System.Drawing.Size(70, 24);
+            this.btnResetTable.TabIndex = 2;
+            this.btnResetTable.Click += new System.EventHandler(this.simpleButton8_Click);
+            // 
             // cbbStatusTableSearch
             // 
             this.cbbStatusTableSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1092,6 +1277,17 @@
             this.label22.TabIndex = 3;
             this.label22.Text = "Tên bàn:";
             // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
+            this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton4.Location = new System.Drawing.Point(347, 4);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(70, 24);
+            this.simpleButton4.TabIndex = 1;
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            // 
             // txtTableNameSearch
             // 
             this.txtTableNameSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1108,202 +1304,6 @@
             this.txtTableNameSearch.Properties.NullValuePrompt = "Nhập bàn muốn tìm kiếm....";
             this.txtTableNameSearch.Size = new System.Drawing.Size(181, 22);
             this.txtTableNameSearch.TabIndex = 0;
-            // 
-            // tàiKhoảnToolStripMenuItem1
-            // 
-            this.tàiKhoảnToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinVàCậpNhậtToolStripMenuItem,
-            this.đăngXuấtChươngTrìnhToolStripMenuItem});
-            this.tàiKhoảnToolStripMenuItem1.Name = "tàiKhoảnToolStripMenuItem1";
-            this.tàiKhoảnToolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
-            this.tàiKhoảnToolStripMenuItem1.Text = "Tài khoản";
-            // 
-            // btnResetTable
-            // 
-            this.btnResetTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetTable.Image = ((System.Drawing.Image)(resources.GetObject("btnResetTable.Image")));
-            this.btnResetTable.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnResetTable.Location = new System.Drawing.Point(347, 29);
-            this.btnResetTable.Name = "btnResetTable";
-            this.btnResetTable.Size = new System.Drawing.Size(70, 24);
-            this.btnResetTable.TabIndex = 2;
-            this.btnResetTable.Click += new System.EventHandler(this.simpleButton8_Click);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-            this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton4.Location = new System.Drawing.Point(347, 4);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(70, 24);
-            this.simpleButton4.TabIndex = 1;
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
-            // 
-            // btnResetCheckout
-            // 
-            this.btnResetCheckout.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetCheckout.Appearance.Options.UseFont = true;
-            this.btnResetCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnResetCheckout.Image")));
-            this.btnResetCheckout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnResetCheckout.Location = new System.Drawing.Point(5, 4);
-            this.btnResetCheckout.Name = "btnResetCheckout";
-            this.btnResetCheckout.Size = new System.Drawing.Size(94, 30);
-            toolTipItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            toolTipItem1.Appearance.Options.UseImage = true;
-            toolTipItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem1.Image")));
-            toolTipItem1.Text = "Xem trước hóa đơn trước khi in.";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnResetCheckout.SuperTip = superToolTip1;
-            this.btnResetCheckout.TabIndex = 2;
-            this.btnResetCheckout.Text = "Xem HĐ";
-            this.btnResetCheckout.Click += new System.EventHandler(this.btnResetCheckout_Click);
-            // 
-            // btnDelCheckout
-            // 
-            this.btnDelCheckout.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelCheckout.Appearance.Options.UseFont = true;
-            this.btnDelCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnDelCheckout.Image")));
-            this.btnDelCheckout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnDelCheckout.Location = new System.Drawing.Point(6, 36);
-            this.btnDelCheckout.Name = "btnDelCheckout";
-            this.btnDelCheckout.Size = new System.Drawing.Size(94, 30);
-            toolTipItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            toolTipItem2.Appearance.Options.UseImage = true;
-            toolTipItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem2.Image")));
-            toolTipItem2.Text = "Xóa hóa đơn hiện tại";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnDelCheckout.SuperTip = superToolTip2;
-            this.btnDelCheckout.TabIndex = 1;
-            this.btnDelCheckout.Text = "Hủy";
-            this.btnDelCheckout.Click += new System.EventHandler(this.btnDelCheckout_Click);
-            // 
-            // btnCheckout
-            // 
-            this.btnCheckout.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.Appearance.Options.UseFont = true;
-            this.btnCheckout.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
-            this.btnCheckout.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btnCheckout.Location = new System.Drawing.Point(104, 2);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(94, 63);
-            toolTipItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            toolTipItem3.Appearance.Options.UseImage = true;
-            toolTipItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem3.Image")));
-            toolTipItem3.Text = "Thanh toán và lưu hóa đơn.";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnCheckout.SuperTip = superToolTip3;
-            this.btnCheckout.TabIndex = 0;
-            this.btnCheckout.Text = "Thanh toán";
-            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
-            // 
-            // btnAddBillFood
-            // 
-            this.btnAddBillFood.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBillFood.Appearance.Options.UseFont = true;
-            this.btnAddBillFood.Image = global::QuanLiQuanCafe.Properties.Resources.add;
-            this.btnAddBillFood.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnAddBillFood.Location = new System.Drawing.Point(120, 135);
-            this.btnAddBillFood.Name = "btnAddBillFood";
-            this.btnAddBillFood.Size = new System.Drawing.Size(70, 25);
-            toolTipItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            toolTipItem4.Appearance.Options.UseImage = true;
-            toolTipItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem4.Image")));
-            toolTipItem4.Text = "Thêm món vào hóa đơn.\r\nBớt món bằng cách thêm món với số lượng < 0.";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnAddBillFood.SuperTip = superToolTip4;
-            this.btnAddBillFood.TabIndex = 20;
-            this.btnAddBillFood.Text = "Thêm";
-            this.btnAddBillFood.Click += new System.EventHandler(this.btnAddBillFood_Click);
-            // 
-            // btnSwitchTable
-            // 
-            this.btnSwitchTable.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwitchTable.Appearance.Options.UseFont = true;
-            this.btnSwitchTable.Image = ((System.Drawing.Image)(resources.GetObject("btnSwitchTable.Image")));
-            this.btnSwitchTable.Location = new System.Drawing.Point(223, 2);
-            this.btnSwitchTable.Name = "btnSwitchTable";
-            this.btnSwitchTable.Size = new System.Drawing.Size(70, 25);
-            toolTipItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            toolTipItem5.Appearance.Options.UseImage = true;
-            toolTipItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem5.Image")));
-            toolTipItem5.Text = "Chuyển hoặc gộp bàn hiện tại đến bàn mới.";
-            superToolTip5.Items.Add(toolTipItem5);
-            this.btnSwitchTable.SuperTip = superToolTip5;
-            this.btnSwitchTable.TabIndex = 8;
-            this.btnSwitchTable.Text = "Chuyển";
-            this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
-            // 
-            // chấmCôngNhânViênToolStripMenuItem
-            // 
-            this.chấmCôngNhânViênToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.dollar_currency_sign;
-            this.chấmCôngNhânViênToolStripMenuItem.Name = "chấmCôngNhânViênToolStripMenuItem";
-            this.chấmCôngNhânViênToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.C)));
-            this.chấmCôngNhânViênToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.chấmCôngNhânViênToolStripMenuItem.Text = "Chấm công nhân viên";
-            // 
-            // thanhToánToolStripMenuItem
-            // 
-            this.thanhToánToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.add_to_shopping_cart;
-            this.thanhToánToolStripMenuItem.Name = "thanhToánToolStripMenuItem";
-            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.thanhToánToolStripMenuItem.Text = "Thanh toán";
-            // 
-            // tìmKiếmBànToolStripMenuItem
-            // 
-            this.tìmKiếmBànToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.search;
-            this.tìmKiếmBànToolStripMenuItem.Name = "tìmKiếmBànToolStripMenuItem";
-            this.tìmKiếmBànToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.tìmKiếmBànToolStripMenuItem.Text = "Tìm kiếm bàn";
-            // 
-            // thiếtLậpToolStripMenuItem
-            // 
-            this.thiếtLậpToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.tools;
-            this.thiếtLậpToolStripMenuItem.Name = "thiếtLậpToolStripMenuItem";
-            this.thiếtLậpToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.thiếtLậpToolStripMenuItem.Text = "Thiết lập";
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.delete;
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.thoátToolStripMenuItem.Text = "Thoát";
-            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
-            // 
-            // báoCáoThốngKêToolStripMenuItem
-            // 
-            this.báoCáoThốngKêToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.report;
-            this.báoCáoThốngKêToolStripMenuItem.Name = "báoCáoThốngKêToolStripMenuItem";
-            this.báoCáoThốngKêToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.báoCáoThốngKêToolStripMenuItem.Text = "Báo cáo thống kê";
-            this.báoCáoThốngKêToolStripMenuItem.Click += new System.EventHandler(this.báoCáoThốngKêToolStripMenuItem_Click);
-            // 
-            // cậpNhậtDanhMụcToolStripMenuItem
-            // 
-            this.cậpNhậtDanhMụcToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.edit_page;
-            this.cậpNhậtDanhMụcToolStripMenuItem.Name = "cậpNhậtDanhMụcToolStripMenuItem";
-            this.cậpNhậtDanhMụcToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.cậpNhậtDanhMụcToolStripMenuItem.Text = "Cập nhật danh mục";
-            this.cậpNhậtDanhMụcToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtDanhMụcToolStripMenuItem_Click);
-            // 
-            // thôngTinVàCậpNhậtToolStripMenuItem
-            // 
-            this.thôngTinVàCậpNhậtToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources.edit_profile;
-            this.thôngTinVàCậpNhậtToolStripMenuItem.Name = "thôngTinVàCậpNhậtToolStripMenuItem";
-            this.thôngTinVàCậpNhậtToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.thôngTinVàCậpNhậtToolStripMenuItem.Text = "Thông tin và cập nhật";
-            this.thôngTinVàCậpNhậtToolStripMenuItem.Click += new System.EventHandler(this.thôngTinVàCậpNhậtToolStripMenuItem_Click);
-            // 
-            // đăngXuấtChươngTrìnhToolStripMenuItem
-            // 
-            this.đăngXuấtChươngTrìnhToolStripMenuItem.Image = global::QuanLiQuanCafe.Properties.Resources._lock;
-            this.đăngXuấtChươngTrìnhToolStripMenuItem.Name = "đăngXuấtChươngTrìnhToolStripMenuItem";
-            this.đăngXuấtChươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.đăngXuấtChươngTrìnhToolStripMenuItem.Text = "Đăng xuất chương trình";
-            this.đăngXuấtChươngTrìnhToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtChươngTrìnhToolStripMenuItem_Click);
             // 
             // FrmHome
             // 

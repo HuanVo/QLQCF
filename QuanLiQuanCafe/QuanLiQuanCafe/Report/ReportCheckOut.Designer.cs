@@ -706,39 +706,51 @@
             // 
             // xrTableCell7
             // 
+            this.xrTableCell7.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell7.Multiline = true;
             this.xrTableCell7.Name = "xrTableCell7";
-            this.xrTableCell7.Text = "1";
+            this.xrTableCell7.StylePriority.UseFont = false;
+            this.xrTableCell7.Text = "(1)";
             this.xrTableCell7.Weight = 0.61874981336104617D;
             // 
             // xrTableCell8
             // 
+            this.xrTableCell8.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.Text = "2";
+            this.xrTableCell8.StylePriority.UseFont = false;
+            this.xrTableCell8.Text = "(2)";
             this.xrTableCell8.Weight = 1.6833338274568863D;
             // 
             // xrTableCell9
             // 
+            this.xrTableCell9.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.Text = "3";
+            this.xrTableCell9.StylePriority.UseFont = false;
+            this.xrTableCell9.Text = "(3)";
             this.xrTableCell9.Weight = 0.81041659045059755D;
             // 
             // xrTableCell10
             // 
+            this.xrTableCell10.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell10.Name = "xrTableCell10";
-            this.xrTableCell10.Text = "4";
+            this.xrTableCell10.StylePriority.UseFont = false;
+            this.xrTableCell10.Text = "(4)";
             this.xrTableCell10.Weight = 0.679687499999997D;
             // 
             // xrTableCell11
             // 
+            this.xrTableCell11.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell11.Name = "xrTableCell11";
-            this.xrTableCell11.Text = "5";
+            this.xrTableCell11.StylePriority.UseFont = false;
+            this.xrTableCell11.Text = "(5)";
             this.xrTableCell11.Weight = 0.57656188555845245D;
             // 
             // xrTableCell12
             // 
+            this.xrTableCell12.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell12.Name = "xrTableCell12";
-            this.xrTableCell12.Text = "6 = 4 x 5";
+            this.xrTableCell12.StylePriority.UseFont = false;
+            this.xrTableCell12.Text = "(6 = 4 x 5)";
             this.xrTableCell12.Weight = 1.3020834327863928D;
             // 
             // ReportFooter
@@ -839,7 +851,7 @@
             // xrLabel27
             // 
             this.xrLabel27.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(341.3582F, 97.20827F);
+            this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(352.8165F, 97.20831F);
             this.xrLabel27.Name = "xrLabel27";
             this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel27.SizeF = new System.Drawing.SizeF(121.875F, 23F);
@@ -852,15 +864,14 @@
             // 
             this.lblSumCheckOut.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSumCheckOut.ForeColor = System.Drawing.Color.Red;
-            this.lblSumCheckOut.LocationFloat = new DevExpress.Utils.PointFloat(463.2332F, 97.20827F);
+            this.lblSumCheckOut.LocationFloat = new DevExpress.Utils.PointFloat(474.6915F, 97.20827F);
             this.lblSumCheckOut.Name = "lblSumCheckOut";
             this.lblSumCheckOut.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblSumCheckOut.SizeF = new System.Drawing.SizeF(108.3334F, 23F);
+            this.lblSumCheckOut.SizeF = new System.Drawing.SizeF(96.87512F, 23F);
             this.lblSumCheckOut.StylePriority.UseFont = false;
             this.lblSumCheckOut.StylePriority.UseForeColor = false;
             this.lblSumCheckOut.StylePriority.UseTextAlignment = false;
-            this.lblSumCheckOut.Text = "120,100000";
-            this.lblSumCheckOut.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblSumCheckOut.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel34
             // 
@@ -924,15 +935,16 @@
             // 
             // lblVAT
             // 
-            this.lblVAT.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVAT.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVAT.ForeColor = System.Drawing.Color.Blue;
             this.lblVAT.LocationFloat = new DevExpress.Utils.PointFloat(474.6915F, 73.70834F);
             this.lblVAT.Name = "lblVAT";
             this.lblVAT.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblVAT.SizeF = new System.Drawing.SizeF(96.87503F, 23F);
             this.lblVAT.StylePriority.UseFont = false;
+            this.lblVAT.StylePriority.UseForeColor = false;
             this.lblVAT.StylePriority.UseTextAlignment = false;
-            this.lblVAT.Text = "120,100000";
-            this.lblVAT.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblVAT.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel29
             // 
@@ -960,27 +972,29 @@
             // 
             // lblSaleOff
             // 
-            this.lblSaleOff.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaleOff.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaleOff.ForeColor = System.Drawing.Color.Blue;
             this.lblSaleOff.LocationFloat = new DevExpress.Utils.PointFloat(474.6915F, 50.70832F);
             this.lblSaleOff.Name = "lblSaleOff";
             this.lblSaleOff.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblSaleOff.SizeF = new System.Drawing.SizeF(96.87503F, 23F);
             this.lblSaleOff.StylePriority.UseFont = false;
+            this.lblSaleOff.StylePriority.UseForeColor = false;
             this.lblSaleOff.StylePriority.UseTextAlignment = false;
-            this.lblSaleOff.Text = "120,100000";
-            this.lblSaleOff.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblSaleOff.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // lblSumproduct
             // 
-            this.lblSumproduct.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSumproduct.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSumproduct.ForeColor = System.Drawing.Color.Blue;
             this.lblSumproduct.LocationFloat = new DevExpress.Utils.PointFloat(474.6915F, 27.70834F);
             this.lblSumproduct.Name = "lblSumproduct";
             this.lblSumproduct.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblSumproduct.SizeF = new System.Drawing.SizeF(96.87503F, 23F);
             this.lblSumproduct.StylePriority.UseFont = false;
+            this.lblSumproduct.StylePriority.UseForeColor = false;
             this.lblSumproduct.StylePriority.UseTextAlignment = false;
-            this.lblSumproduct.Text = "120,100000";
-            this.lblSumproduct.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.lblSumproduct.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel24
             // 

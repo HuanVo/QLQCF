@@ -222,7 +222,9 @@
   <ItemGroup>
     <None Include="Resources\add.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\chart.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\report.png" />
   </ItemGroup>
@@ -234,6 +236,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dollar_currency_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1535,7 +1535,7 @@
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "FrmReport";
-            this.Text = "FrmReport";
+            this.Text = "Hóa đơn bán hàng";
             this.Load += new System.EventHandler(this.FrmReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerRibbonController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

@@ -421,7 +421,7 @@ namespace QuanLiQuanCafe
                         CheckOutBill(IDBillCheckout);
                         // 2. Đóng Hóa Đơn. // 3. Đóng bàn.
                         String sqlCloseTable = string.Format(@"update TableFood set stats ='False' where idTableFood ='{0}'", lblIDFoodTable.Text);
-                        if (BillDAO.Instance.CloseBill(IDBillCheckout) == true && TableDAO.Instance.UpdateTableFood(sqlCloseTable) == true)
+                        if (BillDAO.Instance.CloseBill(IDBillCheckout, numSaleOff.Value.ToString(), numThue.Value.ToString()) == true && TableDAO.Instance.UpdateTableFood(sqlCloseTable) == true)
                         {
                             LoadListTable();
                             MessageBox.Show("Thanh toán thành công!");
@@ -583,7 +583,7 @@ namespace QuanLiQuanCafe
             String sqlsss = "";
             if(TableName !="")
             {
-                sqlsss = string.Format(@"name ='{0}'", TableName);
+                sqlsss = string.Format(@"name like'%{0}%'", TableName);
             }
             String sts = "";
             if(Status>0)

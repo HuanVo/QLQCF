@@ -75,11 +75,11 @@ namespace DAO
             
         }
 
-        public bool CloseBill(String IDBill)
+        public bool CloseBill(String IDBill, String saleoff, String vat)
         {
             try
             {
-                String sqlgetIDBill = string.Format(@"update Bill set stats ='true', DateCheckOut = GETDATE() where idBill = '{0}'", IDBill);
+                String sqlgetIDBill = string.Format(@"update Bill set stats ='true', DateCheckOut = GETDATE(), saleoff ='{0}', vat = '{1}'  where idBill = '{2}'",saleoff, vat, IDBill);
                 if (DataProvider.Instance.ExcuteNonQuery(sqlgetIDBill) > 0)
                     return true;
             }
