@@ -543,12 +543,27 @@ GO
  CREATE PROC LoadTKBC
 AS
 BEGIN
-	SELECT dbo.BillInfo.idBill, dbo.Bill.DateCheckOut, dbo.Bill.saleoff, dbo.Bill.vat, SUM(dbo.BillInfo.count*dbo.Food.price) [sum]
+	SELECT dbo.BillInfo.idBill, dbo.Employee.fullName, dbo.Bill.DateCheckOut, dbo.Bill.saleoff, dbo.Bill.vat, SUM(dbo.BillInfo.count*dbo.Food.price) [sum]
 	 FROM dbo.BillInfo
 	  INNER JOIN dbo.Food ON dbo.BillInfo.idFood = dbo.Food.idFood
 	  INNER JOIN dbo.Bill ON Bill.idBill = BillInfo.idBill
-	 GROUP BY dbo.BillInfo.idBill, saleoff, vat, DateCheckOut
+	  INNER JOIN dbo.Employee ON Employee.idEmployee = Bill.idEmployee
+	  
+
+	 GROUP BY dbo.BillInfo.idBill, saleoff, vat, DateCheckOut, dbo.Employee.fullName
 END
 GO
-
+/*
+	Load dữ liệu báo cáo thống kê chi tiet bill voi id bill
+*/
+ CREATE PROC LoadTKBCDetailBillById(@idBill INT)
+AS
+BEGIN
+	SELECT dbo.BillInfo.idBillInfo, dbo.Food.name, count, Bill.idBill
+	 FROM dbo.BillInfo
+	  INNER JOIN dbo.Food ON dbo.BillInfo.idFood = dbo.Food.idFood
+	  INNER JOIN dbo.Bill ON Bill.idBill = BillInfo.idBill
+	 WHERE Bill.idBill = @idBill
+END
+GO
 

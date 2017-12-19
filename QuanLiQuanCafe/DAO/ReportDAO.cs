@@ -29,5 +29,13 @@ namespace DAO
             DataTable dt = DataProvider.Instance.LoadAllTable(sql);
             return dt;
         }
+
+        public DataTable LoadBaoCaoChiTietBillByIdBill(String idBill)
+        {
+            String sql = string.Format(@"EXEC LoadTKBCDetailBillById '{0}'", idBill);
+
+            DataTable dt = DataProvider.Instance.LoadAllTable(sql);
+            return dt;
+        }
     }
 }

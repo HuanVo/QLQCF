@@ -123,6 +123,18 @@
     <Compile Include="Report\FrmReport.Designer.cs">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\FrmReportBaoCaoTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FrmReportBaoCaoTK.Designer.cs">
+      <DependentUpon>FrmReportBaoCaoTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportBaoCaoTKcs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReportBaoCaoTKcs.Designer.cs">
+      <DependentUpon>ReportBaoCaoTKcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\ReportCheckOut.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -161,6 +173,12 @@
     </Compile>
     <EmbeddedResource Include="Report\FrmReport.resx">
       <DependentUpon>FrmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FrmReportBaoCaoTK.resx">
+      <DependentUpon>FrmReportBaoCaoTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportBaoCaoTKcs.resx">
+      <DependentUpon>ReportBaoCaoTKcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportCheckOut.resx">
       <DependentUpon>ReportCheckOut.cs</DependentUpon>

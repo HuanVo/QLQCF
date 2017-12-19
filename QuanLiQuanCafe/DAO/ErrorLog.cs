@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAO
 {
     public class ErrorLog
     {
         
-        public static void WriteLog(String MessError)
+        public static void WriteLog(String messError)
         {
-            StreamWriter sw = null;
+            StreamWriter sw;
+            sw = null;
             try
             {
                 sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\LogFile.txt", true);
-                sw.WriteLine(DateTime.Now.ToString("g") + ": " + MessError);
+                sw.WriteLine("{0:g}: {1}", DateTime.Now, messError);
                 sw.Flush();
                 sw.Close();
             }
@@ -28,11 +25,10 @@ namespace DAO
         }
         public static void WriteLog(Exception ex)
         {
-            StreamWriter sw = null;
             try
             {
-                sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\LogFile.txt", true);
-                sw.WriteLine(DateTime.Now.ToString("g") + ": " + ex.Message);
+                var sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\LogFile.txt", true);
+                sw.WriteLine("{0:g}: {1}", DateTime.Now, ex.Message);
                 sw.Flush();
                 sw.Close();
             }
